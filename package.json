@@ -1,0 +1,20 @@
+{
+  "name": "al-dente",
+  "version": "1.0.0",
+  "description": "Turn recipes from any source into clean, easy-to-follow cards and keep them organized.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "cheerio": "^1.2.0",
+    "express": "^5.3.0"
+  }
+}
