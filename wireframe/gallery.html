@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Dente screens</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<!--
+  Every Al Dente wireframe screen at once, as static frames, for importing into Figma.
+  Phone frames are 390 × 844. Tablet frames are 768 × 1024. No JavaScript.
+  Open index.html for the clickable version.
+-->
+<body class="gallery">
+<header class="g-head">
+  <h1 class="page-title">Al Dente: all screens</h1>
+  <p class="muted">Grayscale wireframe. Phone frames are 390 × 844 and tablet frames are 768 × 1024, grouped in rows by flow. Open index.html for the clickable prototype.</p>
+</header>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">A. Onboarding</h2>
+  <p class="muted">Flow A: sign up through to the empty library.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">01 · Welcome</figcaption>
+  <div class="frame">
+<!-- ========== 01 Welcome ========== -->
+<section class="screen" data-label="01 Welcome">
+
+<div class="main">
+<div class="onb">
+  <div class="ph ph-fill"><span>[Illustration]</span></div>
+  <div class="stack-sm">
+    <h1 class="display">Al Dente</h1>
+    <p class="lead">Save recipes from anywhere. Cook them from one library.</p>
+  </div>
+  <div class="onb-foot">
+    <a class="btn btn-primary" href="#signup">Get started</a>
+    <a class="btn" href="#library">Log in</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">02 · Sign up</figcaption>
+  <div class="frame">
+<!-- ========== 02 Sign up ========== -->
+<section class="screen" data-label="02 Sign up">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#welcome">‹ Back</a></header>
+<div class="scroll">
+  <div class="onb">
+    <h1 class="h1">Create your account</h1>
+    <label class="field"><span class="label">Email</span><input class="input" type="email" placeholder="you@example.com"></label>
+    <label class="field"><span class="label">Password</span><input class="input" type="password" placeholder="At least 8 characters"></label>
+    <a class="btn btn-primary" href="#create-profile">Create account</a>
+    <div class="divider">or</div>
+    <a class="btn" href="#create-profile"><span class="shape shape-sm shape-circle"></span>Continue with Google</a>
+    <a class="btn" href="#create-profile"><span class="shape shape-sm"></span>Continue with Apple</a>
+    <p class="small muted center">Already have an account? <a class="u" href="#library">Log in</a></p>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">03 · Create profile</figcaption>
+  <div class="frame">
+<!-- ========== 03 Create profile ========== -->
+<section class="screen" data-label="03 Create profile">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#signup">‹ Back</a><div class="progress"><span class="on"></span><span></span><span></span></div><span class="small muted">1 of 3</span></header>
+<div class="onb">
+  <div class="stack-sm">
+    <h1 class="h1">Create your profile</h1>
+    <p class="muted">This is how you show up in communities.</p>
+  </div>
+  <div class="row">
+    <div class="ph ph-avatar"><span>[Photo]</span></div>
+    <div class="stack-sm">
+      <button class="btn btn-sm" type="button">Add photo</button>
+      <span class="small muted">Optional</span>
+    </div>
+  </div>
+  <label class="field"><span class="label">Name</span><input class="input" type="text" placeholder="Your name"></label>
+  <div class="onb-foot"><a class="btn btn-primary" href="#dietary">Continue</a></div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">04 · Dietary needs</figcaption>
+  <div class="frame">
+<!-- ========== 04 Dietary needs ========== -->
+<section class="screen" data-label="04 Dietary needs">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#create-profile">‹ Back</a><div class="progress"><span class="on"></span><span class="on"></span><span></span></div><span class="small muted">2 of 3</span></header>
+<div class="onb">
+  <div class="stack-sm">
+    <h1 class="h1">Any dietary needs?</h1>
+    <p class="muted">We'll point out recipes that don't fit. You can change this later.</p>
+  </div>
+  <div class="stack-sm">
+    <label class="check-row"><input type="checkbox"><span>Vegetarian</span></label>
+    <label class="check-row"><input type="checkbox"><span>Vegan</span></label>
+    <label class="check-row"><input type="checkbox"><span>Gluten-free</span></label>
+    <label class="check-row"><input type="checkbox" checked><span>Dairy-free</span></label>
+    <label class="check-row"><input type="checkbox" checked><span>Nut allergy</span></label>
+    <label class="check-row"><input type="checkbox"><span>Other</span></label>
+    <input class="input" type="text" placeholder="Other: tell us more" aria-label="Other dietary needs">
+  </div>
+  <div class="onb-foot">
+    <a class="btn btn-primary" href="#connect">Continue</a>
+    <a class="btn btn-text" href="#connect">Skip</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">05 · Connect cookbook</figcaption>
+  <div class="frame">
+<!-- ========== 05 Connect cookbook ========== -->
+<section class="screen" data-label="05 Connect cookbook">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#dietary">‹ Back</a><div class="progress"><span class="on"></span><span class="on"></span><span class="on"></span></div><span class="small muted">3 of 3</span></header>
+<div class="onb">
+  <div class="row" style="justify-content: center">
+    <div class="device device-sm">
+    <div class="device-screen eink">
+      <div class="eink-head"><span>AL DENTE</span><span>Ready</span></div>
+      <div class="eink-big">Hold Select to pair</div>
+    </div>
+    <div class="device-buttons">
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Previous</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Next</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Select</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Back/Menu</span></div>
+    </div>
+  </div>
+  </div>
+  <div class="stack-sm">
+    <h1 class="h1">Do you have an Al Dente cookbook?</h1>
+    <p class="muted">It's a small e-ink screen for your kitchen. Send a recipe from your phone, then cook without touching your phone.</p>
+  </div>
+  <div class="onb-foot">
+    <a class="btn btn-primary" href="#empty-library">Connect</a>
+    <a class="btn" href="#empty-library">Not now</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">06 · Empty library</figcaption>
+  <div class="frame">
+<!-- ========== 06 Empty library ========== -->
+<section class="screen has-nav" data-label="06 Empty library">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><h1 class="page-title grow">Library</h1></header>
+<div class="center-stack">
+  <div class="ph ph-empty"><span>[Illustration]</span></div>
+  <h2 class="h2">Add your first recipe</h2>
+  <p class="muted">Paste a link, snap a photo of a recipe card, record a voice memo, or type it in.</p>
+  <a class="btn btn-primary" href="#add-menu">+ Add recipe</a>
+  <p class="small muted">You can also share a post to Al Dente from Instagram or any other app. <a class="u" href="#instagram">See how</a></p>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">B. Save from Instagram</h2>
+  <p class="muted">Flow B: Instagram share, saving, saved, collection picker, library.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">16 · Instagram share mock</figcaption>
+  <div class="frame">
+<!-- ========== 16 Instagram share mock ========== -->
+<section class="screen" data-label="16 Instagram share mock">
+
+<div class="main">
+<header class="topbar"><span class="link">‹</span><div class="topbar-title">Instagram (mock)</div></header>
+<div class="scroll">
+  <div class="row ig-head"><span class="shape shape-sm shape-circle"></span><span class="strong grow">weeknightbowls</span><span class="small strong">Follow</span></div>
+  <div class="ph ph-square"><span>[Photo]</span></div>
+  <div class="row ig-actions"><span class="small strong">Like</span><span class="small strong">Comment</span><span class="small strong">Share</span><span class="spacer"></span><span class="small strong">Save</span></div>
+  <p class="small ig-caption"><b>weeknightbowls</b> Copycat Chipotle burrito bowl at home. Rice, chipotle chicken, beans, and corn salsa. Recipe in the caption...</p>
+</div>
+</div>
+<div class="overlay">
+  <div class="scrim"></div>
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h2 class="h3 center">Share</h2>
+    <div class="share-apps">
+      <div class="share-app"><span class="share-circle"></span><span class="small">Messages</span></div>
+      <div class="share-app"><span class="share-circle"></span><span class="small">Mail</span></div>
+      <a class="share-app is-target" href="#saving" data-r="burrito" data-then="saved"><span class="share-circle">AD</span><span class="small strong">Al Dente</span></a>
+      <div class="share-app"><span class="share-circle"></span><span class="small">Notes</span></div>
+      <div class="share-app"><span class="share-circle"></span><span class="small">More</span></div>
+    </div>
+    <div class="list">
+      <div class="list-row"><span class="shape shape-sm"></span><span class="grow">Copy link</span></div>
+      <div class="list-row"><span class="shape shape-sm"></span><span class="grow">Add to story</span></div>
+    </div>
+  </div>
+</div>
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">10 · Saving</figcaption>
+  <div class="frame">
+<!-- ========== 10 Saving ========== -->
+<section class="screen" data-label="10 Saving">
+
+<div class="main">
+<div class="center-stack">
+  <div class="spinner" role="img" aria-label="Loading"></div>
+  <div class="stack-sm">
+    <h1 class="h2">Reading recipe...</h1>
+    <p class="muted">Finding the ingredients and steps.</p>
+  </div>
+  <div class="skel-card">
+    <div class="ph ph-skel"><span>[Photo]</span></div>
+    <div class="skel w-80"></div>
+    <div class="skel w-60"></div>
+    <div class="skel"></div>
+  </div>
+  <a class="btn btn-text" href="#library">Cancel</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">11 · Saved confirmation</figcaption>
+  <div class="frame">
+<!-- ========== 11 Saved confirmation ========== -->
+<section class="screen" data-label="11 Saved confirmation">
+
+<div class="main">
+<header class="topbar"><span class="spacer"></span><a class="link strong" href="#library">Done</a></header>
+<div class="center-stack">
+  <div class="big-check" aria-hidden="true">✓</div>
+  <h1 class="h1">Saved to Library</h1>
+  <div class="mini-card">
+    <div class="ph ph-thumb"><span>[Photo]</span></div>
+    <div class="row-text grow"><span class="row-title" data-bind="title">Copycat Chipotle Burrito Bowl</span><span class="row-sub" data-bind="source">From Instagram · @weeknightbowls</span></div>
+  </div>
+  <div class="stack w-full">
+    <a class="btn btn-primary" href="#collections">Add to collection</a>
+    <a class="btn" href="#review-burrito" data-to="review-{r}">Edit</a>
+  </div>
+  <a class="u small" href="#detail-burrito" data-to="detail-{r}">View recipe</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">13 · Collection picker</figcaption>
+  <div class="frame">
+<!-- ========== 13 Collection picker ========== -->
+<section class="screen" data-label="13 Collection picker">
+
+<div class="main">
+<header class="topbar"><span class="spacer"></span><a class="link strong" href="#library">Done</a></header>
+<div class="center-stack">
+  <div class="big-check" aria-hidden="true">✓</div>
+  <h1 class="h1">Saved to Library</h1>
+  <div class="mini-card">
+    <div class="ph ph-thumb"><span>[Photo]</span></div>
+    <div class="row-text grow"><span class="row-title" data-bind="title">Copycat Chipotle Burrito Bowl</span><span class="row-sub" data-bind="source">From Instagram · @weeknightbowls</span></div>
+  </div>
+  <div class="stack w-full">
+    <a class="btn btn-primary" href="#collections">Add to collection</a>
+    <a class="btn" href="#review-burrito" data-to="review-{r}">Edit</a>
+  </div>
+  <a class="u small" href="#detail-burrito" data-to="detail-{r}">View recipe</a>
+</div>
+</div>
+<div class="overlay">
+  <a class="scrim" href="#saved" aria-label="Close"></a>
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h2 class="h2">Add to collection</h2>
+    <p class="small muted" data-bind="title">Copycat Chipotle Burrito Bowl</p>
+    <div class="list">
+      <label class="list-row"><span class="shape shape-sm"></span><div class="row-text grow"><span class="row-title">Weeknight</span><span class="row-sub">2 recipes</span></div><input type="checkbox" checked></label>
+      <label class="list-row"><span class="shape shape-sm"></span><div class="row-text grow"><span class="row-title">Family recipes</span><span class="row-sub">2 recipes</span></div><input type="checkbox"></label>
+      <label class="list-row"><span class="shape shape-sm"></span><div class="row-text grow"><span class="row-title">Baking</span><span class="row-sub">1 recipe</span></div><input type="checkbox"></label>
+      <label class="list-row"><span class="shape shape-sm"></span><div class="row-text grow"><span class="row-title">Meal prep</span><span class="row-sub">2 recipes</span></div><input type="checkbox" checked></label>
+      <label class="list-row"><span class="shape shape-sm"></span><div class="row-text grow"><span class="row-title">Holidays</span><span class="row-sub">1 recipe</span></div><input type="checkbox"></label>
+      <button class="list-row" type="button"><span class="shape shape-sm shape-dashed">+</span><span class="row-title">New collection</span></button>
+    </div>
+    <a class="btn btn-primary" href="#library">Done</a>
+  </div>
+</div>
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">07 · Library</figcaption>
+  <div class="frame">
+<!-- ========== 07 Library ========== -->
+<section class="screen has-nav" data-label="07 Library">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <h1 class="page-title grow">Library</h1>
+  <a class="btn btn-sm btn-primary wide-only" href="#add-menu">+ Add recipe</a>
+</header>
+<div class="scroll">
+  <div class="search-wrap"><input class="input search" type="search" placeholder="Search recipes" aria-label="Search recipes" data-search></div>
+  <div class="chips" role="group" aria-label="Collections">
+    <button class="chip is-active" type="button" data-filter="all">All</button>
+    <button class="chip" type="button" data-filter="weeknight">Weeknight</button>
+    <button class="chip" type="button" data-filter="family">Family recipes</button>
+    <button class="chip" type="button" data-filter="baking">Baking</button>
+    <button class="chip" type="button" data-filter="meal-prep">Meal prep</button>
+    <button class="chip" type="button" data-filter="holidays">Holidays</button>
+    <button class="chip chip-dashed" type="button">+ New</button>
+  </div>
+  <div class="pad pad-fab">
+    <div class="cards">
+      <a class="card" href="#detail-burrito" data-r="burrito" data-collections="weeknight meal-prep" data-title="copycat chipotle burrito bowl">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Copycat Chipotle Burrito Bowl</span>
+        <span class="card-meta">Instagram · 40 min</span>
+      </a>
+      <a class="card" href="#detail-tamales" data-r="tamales" data-collections="family holidays" data-title="grandma's tamales">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Grandma's Tamales</span>
+        <span class="card-meta">Photo + voice memo · 3 hr</span>
+      </a>
+      <a class="card" href="#detail-lemon" data-r="lemon" data-collections="weeknight" data-title="lemon ricotta pasta">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Lemon Ricotta Pasta</span>
+        <span class="card-meta">Link · 20 min</span>
+      </a>
+      <a class="card" href="#detail-chili" data-r="chili" data-collections="family meal-prep" data-title="dad's weeknight chili">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Dad's Weeknight Chili</span>
+        <span class="card-meta">Voice memo · 1 hr</span>
+      </a>
+      <a class="card" href="#detail-banana" data-r="banana" data-collections="baking" data-title="brown butter banana bread">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Brown Butter Banana Bread</span>
+        <span class="card-meta">Link · 1 hr 10 min</span>
+      </a>
+    </div>
+  </div>
+</div>
+<a class="fab narrow-only" href="#add-menu" aria-label="Add recipe">+</a>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">C. Add a recipe in the app</h2>
+  <p class="muted">From the + button. A photo or voice memo goes through Saving, then Review when the app is unsure.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">08 · Add recipe menu</figcaption>
+  <div class="frame">
+<!-- ========== 08 Add recipe menu ========== -->
+<section class="screen has-nav" data-label="08 Add recipe menu">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <h1 class="page-title grow">Library</h1>
+  <a class="btn btn-sm btn-primary wide-only" href="#add-menu">+ Add recipe</a>
+</header>
+<div class="scroll">
+  <div class="search-wrap"><input class="input search" type="search" placeholder="Search recipes" aria-label="Search recipes" data-search></div>
+  <div class="chips" role="group" aria-label="Collections">
+    <button class="chip is-active" type="button" data-filter="all">All</button>
+    <button class="chip" type="button" data-filter="weeknight">Weeknight</button>
+    <button class="chip" type="button" data-filter="family">Family recipes</button>
+    <button class="chip" type="button" data-filter="baking">Baking</button>
+    <button class="chip" type="button" data-filter="meal-prep">Meal prep</button>
+    <button class="chip" type="button" data-filter="holidays">Holidays</button>
+    <button class="chip chip-dashed" type="button">+ New</button>
+  </div>
+  <div class="pad pad-fab">
+    <div class="cards">
+      <a class="card" href="#detail-burrito" data-r="burrito" data-collections="weeknight meal-prep" data-title="copycat chipotle burrito bowl">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Copycat Chipotle Burrito Bowl</span>
+        <span class="card-meta">Instagram · 40 min</span>
+      </a>
+      <a class="card" href="#detail-tamales" data-r="tamales" data-collections="family holidays" data-title="grandma's tamales">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Grandma's Tamales</span>
+        <span class="card-meta">Photo + voice memo · 3 hr</span>
+      </a>
+      <a class="card" href="#detail-lemon" data-r="lemon" data-collections="weeknight" data-title="lemon ricotta pasta">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Lemon Ricotta Pasta</span>
+        <span class="card-meta">Link · 20 min</span>
+      </a>
+      <a class="card" href="#detail-chili" data-r="chili" data-collections="family meal-prep" data-title="dad's weeknight chili">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Dad's Weeknight Chili</span>
+        <span class="card-meta">Voice memo · 1 hr</span>
+      </a>
+      <a class="card" href="#detail-banana" data-r="banana" data-collections="baking" data-title="brown butter banana bread">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Brown Butter Banana Bread</span>
+        <span class="card-meta">Link · 1 hr 10 min</span>
+      </a>
+    </div>
+  </div>
+</div>
+<a class="fab narrow-only" href="#add-menu" aria-label="Add recipe">+</a>
+</div>
+<div class="overlay">
+  <a class="scrim" href="#library" aria-label="Close"></a>
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h2 class="h2">Add a recipe</h2>
+    <div class="list">
+      <a class="list-row" href="#paste-link"><span class="shape"></span><div class="row-text grow"><span class="row-title">Paste a link</span><span class="row-sub">Websites, Instagram, TikTok, YouTube</span></div><span class="chev">›</span></a>
+      <a class="list-row" href="#saving" data-r="tamales" data-then="review-tamales"><span class="shape"></span><div class="row-text grow"><span class="row-title">Take or upload a photo</span><span class="row-sub">Cookbook pages, handwritten cards, screenshots</span></div><span class="chev">›</span></a>
+      <a class="list-row" href="#saving" data-r="chili" data-then="review-chili"><span class="shape"></span><div class="row-text grow"><span class="row-title">Record a voice memo</span><span class="row-sub">Talk through a recipe out loud</span></div><span class="chev">›</span></a>
+      <a class="list-row" href="#manual"><span class="shape"></span><div class="row-text grow"><span class="row-title">Type it manually</span><span class="row-sub">Start from a blank recipe</span></div><span class="chev">›</span></a>
+    </div>
+    <a class="btn btn-text" href="#library">Cancel</a>
+  </div>
+</div>
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">09 · Paste link</figcaption>
+  <div class="frame">
+<!-- ========== 09 Paste link ========== -->
+<section class="screen" data-label="09 Paste link">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#add-menu">‹ Back</a><div class="topbar-title">Paste a link</div></header>
+<div class="pad narrow grow">
+  <label class="field">
+    <span class="label">Recipe link</span>
+    <input class="input" type="url" placeholder="https://" value="https://smallkitchen.blog/lemon-ricotta-pasta">
+  </label>
+  <button class="btn btn-sm self-start" type="button">Paste from clipboard</button>
+  <p class="small muted">Works with recipe websites, blogs, Instagram, TikTok, YouTube, and Pinterest.</p>
+  <span class="spacer"></span>
+  <a class="btn btn-primary" href="#saving" data-r="lemon" data-then="saved">Save</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">12 · Review (when unsure) <span class="small muted">(photo of a handwritten card)</span></figcaption>
+  <div class="frame">
+<!-- ========== 12 Review (when unsure) ========== -->
+<section class="screen" data-label="12 Review (when unsure)">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#library">Cancel</a>
+  <div class="topbar-title center">Review recipe</div>
+  <a class="link strong" href="#saved" data-r="tamales">Save</a>
+</header>
+<div class="scroll">
+  <div class="pad narrow">
+    <div class="banner">We weren't sure about 3 things on the card. Please check the highlighted fields.</div>
+    <label class="field"><span class="label">Title</span><input class="input" type="text" value="Grandma's Tamales"></label>
+    <div class="field"><span class="label">Source</span><div class="source"><div class="row"><div class="ph ph-thumb-sm"><span>[Card]</span></div><div class="row-text grow"><span class="row-title">Photo of handwritten card</span><span class="row-sub">Voice memo attached · 0:48</span></div></div></div></div>
+    <div class="unsure"><span class="tag">Please check</span><label class="field"><span class="label">Servings</span><input class="input" type="text" value="24 tamales"></label><span class="hint">The card says "2 doz." Is that 24?</span></div>
+    <div class="field">
+      <span class="label">Ingredients</span>
+      <div class="stack-sm">
+        <input class="input" type="text" value="30 dried corn husks" aria-label="Ingredient 1">
+        <input class="input" type="text" value="1 cup lard" aria-label="Ingredient 2">
+        <div class="unsure"><span class="tag">Please check</span><input class="input" type="text" value="4 cups masa harina" aria-label="Ingredient 3"><span class="hint">Hard to read: 4 or 6 cups?</span></div>
+        <input class="input" type="text" value="2 tsp baking powder" aria-label="Ingredient 4">
+        <input class="input" type="text" value="1½ tsp salt" aria-label="Ingredient 5">
+        <input class="input" type="text" value="3 cups warm chicken broth" aria-label="Ingredient 6">
+        <input class="input" type="text" value="3 cups shredded pork in red chile" aria-label="Ingredient 7">
+      </div>
+      <button class="btn btn-sm btn-text self-start" type="button">+ Add ingredient</button>
+    </div>
+    <div class="field">
+      <span class="label">Steps</span>
+      <div class="stack-sm">
+        <textarea class="input" rows="2" aria-label="Step 1">Soak 30 corn husks in hot water until soft.</textarea>
+        <textarea class="input" rows="2" aria-label="Step 2">Beat 1 cup lard until fluffy and white, like frosting.</textarea>
+        <textarea class="input" rows="2" aria-label="Step 3">Mix in 4 cups masa harina, 2 tsp baking powder, and 1½ tsp salt. Add 3 cups warm broth a little at a time.</textarea>
+        <textarea class="input" rows="2" aria-label="Step 4">Spread 2 tbsp masa on each husk, add 1 tbsp pork, fold, and stand them upright in the pot.</textarea>
+        <div class="unsure"><span class="tag">Please check</span><textarea class="input" rows="2" aria-label="Step 5">Steam, covered, about 1 hr 15 min, until the masa pulls away from the husk.</textarea><span class="hint">The time is smudged. We guessed 1 hr 15 min.</span></div>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="#saved" data-r="tamales">Save recipe</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">08b · Type it manually</figcaption>
+  <div class="frame">
+<!-- ========== 08b Type it manually ========== -->
+<section class="screen" data-label="08b Type it manually">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#add-menu">Cancel</a>
+  <div class="topbar-title center">New recipe</div>
+  <a class="link strong" href="#library">Save</a>
+</header>
+<div class="scroll">
+  <div class="pad narrow">
+    <div class="ph ph-banner"><span>+ Add photo</span></div>
+    <label class="field"><span class="label">Title</span><input class="input" type="text" placeholder="Recipe name"></label>
+    <div class="row">
+      <label class="field grow"><span class="label">Servings</span><input class="input" type="text" placeholder="4"></label>
+      <label class="field grow"><span class="label">Total time</span><input class="input" type="text" placeholder="30 min"></label>
+    </div>
+    <div class="field">
+      <span class="label">Ingredients</span>
+      <div class="stack-sm">
+        <input class="input" type="text" placeholder="e.g. 1 cup basmati rice" aria-label="Ingredient 1">
+        <input class="input" type="text" placeholder="Ingredient" aria-label="Ingredient 2">
+        <input class="input" type="text" placeholder="Ingredient" aria-label="Ingredient 3">
+      </div>
+      <button class="btn btn-sm btn-text self-start" type="button">+ Add ingredient</button>
+    </div>
+    <div class="field">
+      <span class="label">Steps</span>
+      <div class="stack-sm">
+        <textarea class="input" rows="2" placeholder="Step 1" aria-label="Step 1"></textarea>
+        <textarea class="input" rows="2" placeholder="Step 2" aria-label="Step 2"></textarea>
+      </div>
+      <button class="btn btn-sm btn-text self-start" type="button">+ Add step</button>
+    </div>
+    <a class="btn btn-primary" href="#library">Save recipe</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">D. Recipe and cooking</h2>
+  <p class="muted">The recipe detail scrolls, so it is shown twice. A second recipe shows the photo and voice memo source.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">14 · Recipe detail <span class="small muted">(top)</span></figcaption>
+  <div class="frame">
+<!-- ========== 14 Recipe detail ========== -->
+<section class="screen has-nav" data-label="14 Recipe detail">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#library">‹ Library</a>
+  <span class="topbar-title"></span>
+  <a class="link" href="#new-post" data-r="burrito">Share</a>
+  <a class="link" href="#review-burrito" data-r="burrito">Edit</a>
+</header>
+<div class="scroll">
+  <div class="pad">
+    <div class="ph ph-hero"><span>[Photo]</span></div>
+    <div class="stack-sm">
+      <h1 class="h1">Copycat Chipotle Burrito Bowl</h1>
+      <div class="row row-wrap"><span class="pill">40 min</span><span class="small muted">Made 3 times</span></div>
+    </div>
+    <div class="source">
+    <span class="label">Source</span>
+    <div class="row"><span class="shape"></span><div class="row-text grow"><span class="row-title">Instagram post</span><span class="row-sub">@weeknightbowls</span></div><a class="u small" href="#instagram">View post</a></div>
+  </div>
+    <div class="row">
+      <span class="label grow">Servings</span>
+      <div class="stepper"><button type="button" aria-label="Fewer">−</button><span><b>4</b> servings</span><button type="button" aria-label="More">+</button></div>
+    </div>
+    <div class="detail-cols">
+      <section class="section">
+        <h2 class="h3">Ingredients</h2>
+        <ul class="ingredients">
+          <li><span class="box"></span>1 cup basmati rice</li>
+          <li><span class="box"></span>1 bay leaf</li>
+          <li><span class="box"></span>2 chipotle peppers in adobo</li>
+          <li><span class="box"></span>3 garlic cloves</li>
+          <li><span class="box"></span>1 tsp ground cumin</li>
+          <li><span class="box"></span>2 tbsp olive oil</li>
+          <li><span class="box"></span>1½ lb chicken thighs</li>
+          <li><span class="box"></span>1 lime</li>
+          <li><span class="box"></span>¼ cup cilantro, chopped</li>
+          <li><span class="box"></span>1 can black beans (15 oz)</li>
+          <li><span class="box"></span>1 cup corn salsa</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2 class="h3">Steps</h2>
+        <ol class="steps">
+          <li><span class="step-num">1</span><p>Rinse 1 cup basmati rice. Simmer it covered with 1¼ cups water and 1 bay leaf.</p></li>
+          <li><span class="step-num">2</span><p>Blend 2 chipotle peppers, 3 garlic cloves, 1 tsp cumin, and 2 tbsp olive oil into a paste.</p></li>
+          <li><span class="step-num">3</span><p>Coat 1½ lb chicken thighs in the paste. Let them sit while the rice cooks.</p></li>
+          <li><span class="step-num">4</span><p>Sear the chicken in a hot pan, about 5 min per side. Rest it, then slice.</p></li>
+          <li><span class="step-num">5</span><p>Fluff the rice. Stir in the juice of 1 lime and ¼ cup cilantro.</p></li>
+          <li><span class="step-num">6</span><p>Warm 1 can black beans. Build bowls with rice, beans, chicken, and 1 cup corn salsa.</p></li>
+        </ol>
+      </section>
+    </div>
+    <section class="section">
+      <h2 class="h3">Your rating</h2>
+      <div class="row">
+        <span class="stars" aria-label="4 out of 5">★★★★☆</span>
+        <span class="spacer"></span>
+        <button class="btn btn-sm" type="button" data-pressed="Made it today ✓">I made this</button>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="h3">Notes</h2>
+      <textarea class="input" rows="3" aria-label="Notes">Double the chipotle paste and freeze half for next week.</textarea>
+    </section>
+  </div>
+</div>
+<div class="actionbar">
+  <a class="btn" href="#send" data-r="burrito" data-pick>Send to cookbook</a>
+  <a class="btn btn-primary" href="#cook-burrito" data-r="burrito">Start cooking</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">14 · Recipe detail <span class="small muted">(scrolled)</span></figcaption>
+  <div class="frame">
+<!-- ========== 14 Recipe detail ========== -->
+<section class="screen has-nav" data-label="14 Recipe detail">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#library">‹ Library</a>
+  <span class="topbar-title">Copycat Chipotle Burrito Bowl</span>
+  <a class="link" href="#new-post" data-r="burrito">Share</a>
+  <a class="link" href="#review-burrito" data-r="burrito">Edit</a>
+</header>
+<div class="scroll">
+  <div class="pad">
+    
+    <div class="detail-cols">
+      
+      <section class="section">
+        <h2 class="h3">Steps</h2>
+        <ol class="steps">
+          <li><span class="step-num">1</span><p>Rinse 1 cup basmati rice. Simmer it covered with 1¼ cups water and 1 bay leaf.</p></li>
+          <li><span class="step-num">2</span><p>Blend 2 chipotle peppers, 3 garlic cloves, 1 tsp cumin, and 2 tbsp olive oil into a paste.</p></li>
+          <li><span class="step-num">3</span><p>Coat 1½ lb chicken thighs in the paste. Let them sit while the rice cooks.</p></li>
+          <li><span class="step-num">4</span><p>Sear the chicken in a hot pan, about 5 min per side. Rest it, then slice.</p></li>
+          <li><span class="step-num">5</span><p>Fluff the rice. Stir in the juice of 1 lime and ¼ cup cilantro.</p></li>
+          <li><span class="step-num">6</span><p>Warm 1 can black beans. Build bowls with rice, beans, chicken, and 1 cup corn salsa.</p></li>
+        </ol>
+      </section>
+    </div>
+    <section class="section">
+      <h2 class="h3">Your rating</h2>
+      <div class="row">
+        <span class="stars" aria-label="4 out of 5">★★★★☆</span>
+        <span class="spacer"></span>
+        <button class="btn btn-sm" type="button" data-pressed="Made it today ✓">I made this</button>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="h3">Notes</h2>
+      <textarea class="input" rows="3" aria-label="Notes">Double the chipotle paste and freeze half for next week.</textarea>
+    </section>
+  </div>
+</div>
+<div class="actionbar">
+  <a class="btn" href="#send" data-r="burrito" data-pick>Send to cookbook</a>
+  <a class="btn btn-primary" href="#cook-burrito" data-r="burrito">Start cooking</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">14 · Recipe detail <span class="small muted">(photo + voice memo source)</span></figcaption>
+  <div class="frame">
+<!-- ========== 14 Recipe detail (detail-tamales) ========== -->
+<section class="screen has-nav" data-label="14 Recipe detail">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#library">‹ Library</a>
+  <span class="topbar-title"></span>
+  <a class="link" href="#new-post" data-r="tamales">Share</a>
+  <a class="link" href="#review-tamales" data-r="tamales">Edit</a>
+</header>
+<div class="scroll">
+  <div class="pad">
+    <div class="ph ph-hero"><span>[Photo]</span></div>
+    <div class="stack-sm">
+      <h1 class="h1">Grandma's Tamales</h1>
+      <div class="row row-wrap"><span class="pill">3 hr</span><span class="small muted">Made every December</span></div>
+    </div>
+    <div class="source">
+    <span class="label">Source</span>
+    <div class="row"><div class="ph ph-thumb-sm"><span>[Card]</span></div><div class="row-text grow"><span class="row-title">Photo of handwritten card</span><span class="row-sub">Original photo saved</span></div><button class="u small" type="button">View photo</button></div>
+    <div class="row"><button class="play" type="button">Play</button><div class="row-text grow"><span class="row-title">Voice memo</span><span class="row-sub">0:48</span></div></div>
+    <p class="quote">"Beat the lard until it looks like frosting. Don't rush that part."</p>
+  </div>
+    <div class="row">
+      <span class="label grow">Servings</span>
+      <div class="stepper"><button type="button" aria-label="Fewer">−</button><span><b>24</b> tamales</span><button type="button" aria-label="More">+</button></div>
+    </div>
+    <div class="detail-cols">
+      <section class="section">
+        <h2 class="h3">Ingredients</h2>
+        <ul class="ingredients">
+          <li><span class="box"></span>30 dried corn husks</li>
+          <li><span class="box"></span>1 cup lard</li>
+          <li><span class="box"></span>4 cups masa harina</li>
+          <li><span class="box"></span>2 tsp baking powder</li>
+          <li><span class="box"></span>1½ tsp salt</li>
+          <li><span class="box"></span>3 cups warm chicken broth</li>
+          <li><span class="box"></span>3 cups shredded pork in red chile</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2 class="h3">Steps</h2>
+        <ol class="steps">
+          <li><span class="step-num">1</span><p>Soak 30 corn husks in hot water until soft.</p></li>
+          <li><span class="step-num">2</span><p>Beat 1 cup lard until fluffy and white, like frosting.</p></li>
+          <li><span class="step-num">3</span><p>Mix in 4 cups masa harina, 2 tsp baking powder, and 1½ tsp salt. Add 3 cups warm broth a little at a time.</p></li>
+          <li><span class="step-num">4</span><p>Spread 2 tbsp masa on each husk, add 1 tbsp pork, fold, and stand them upright in the pot.</p></li>
+          <li><span class="step-num">5</span><p>Steam, covered, about 1 hr 15 min, until the masa pulls away from the husk.</p></li>
+        </ol>
+      </section>
+    </div>
+    <section class="section">
+      <h2 class="h3">Your rating</h2>
+      <div class="row">
+        <span class="stars" aria-label="5 out of 5">★★★★★</span>
+        <span class="spacer"></span>
+        <button class="btn btn-sm" type="button" data-pressed="Made it today ✓">I made this</button>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="h3">Notes</h2>
+      <textarea class="input" rows="3" aria-label="Notes">Make the pork the day before. Grandma used the big blue pot.</textarea>
+    </section>
+  </div>
+</div>
+<div class="actionbar">
+  <a class="btn" href="#send" data-r="tamales" data-pick>Send to cookbook</a>
+  <a class="btn btn-primary" href="#cook-tamales" data-r="tamales">Start cooking</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">15 · Cook mode</figcaption>
+  <div class="frame">
+<!-- ========== 15 Cook mode ========== -->
+<section class="screen cook" data-label="15 Cook mode">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#detail-burrito">Exit</a>
+  <div class="topbar-title">Copycat Chipotle Burrito Bowl</div>
+  <span class="small muted" data-page-label>Steps 1–3 of 6</span>
+</header>
+<div class="timerbar" aria-label="Running timers">
+  <span class="small strong">Timers</span>
+  <span class="timer" data-secs="760">Rice <b>12:40</b></span>
+  <span class="timer" data-secs="245">Marinate <b>04:05</b></span>
+  <button class="chip chip-sm" type="button" data-add-timer>+ Timer</button>
+</div>
+<div class="scroll">
+  <div class="cook-page" data-label="Steps 1–3 of 6">
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">1</span><span class="small muted strong">Step 1</span></div>
+        <p>Rinse <b>1 cup basmati rice</b>. Simmer it covered with <b>1¼ cups water</b> and <b>1 bay leaf</b>.</p>
+        <button class="chip self-start" type="button" data-start-timer="900" data-label="Rice">Start 15 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">2</span><span class="small muted strong">Step 2</span></div>
+        <p>Blend <b>2 chipotle peppers</b>, <b>3 garlic cloves</b>, <b>1 tsp cumin</b>, and <b>2 tbsp olive oil</b> into a paste.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">3</span><span class="small muted strong">Step 3</span></div>
+        <p>Coat <b>1½ lb chicken thighs</b> in the paste. Let them sit while the rice cooks.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Marinate">Start 10 min timer</button>
+      </article>
+    </div>
+  </div>
+  <div class="cook-page" data-label="Steps 4–6 of 6" hidden>
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">4</span><span class="small muted strong">Step 4</span></div>
+        <p>Sear the chicken in a hot pan, about <b>5 min per side</b>. Rest it, then slice.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Chicken">Start 10 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">5</span><span class="small muted strong">Step 5</span></div>
+        <p>Fluff the rice. Stir in the juice of <b>1 lime</b> and <b>¼ cup cilantro</b>.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">6</span><span class="small muted strong">Step 6</span></div>
+        <p>Warm <b>1 can black beans</b>. Build bowls with rice, beans, chicken, and <b>1 cup corn salsa</b>.</p>
+        
+      </article>
+    </div>
+  </div>
+</div>
+<footer class="cook-foot" data-done="detail-burrito">
+  <div class="row">
+    <button class="btn is-disabled" type="button" data-page-prev>‹ Previous</button>
+    <button class="btn btn-primary grow" type="button" data-page-next>Next steps ›</button>
+  </div>
+  <details class="assistant">
+    <summary class="btn">Ask assistant <span class="small muted">Type or speak</span></summary>
+    <div class="assistant-panel">
+      <div class="bubble bubble-me">Can I use brown rice?</div>
+      <div class="bubble">Yes. Simmer brown rice for 40 minutes with 1½ cups water, and start it before you marinate the chicken.</div>
+      <div class="row">
+        <input class="input grow" type="text" placeholder="Ask about this recipe" aria-label="Ask the assistant">
+        <button class="btn btn-sm" type="button">Send</button>
+      </div>
+      <button class="btn" type="button">Hold to speak</button>
+    </div>
+  </details>
+</footer>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">15 · Cook mode <span class="small muted">(assistant open)</span></figcaption>
+  <div class="frame">
+<!-- ========== 15 Cook mode ========== -->
+<section class="screen cook" data-label="15 Cook mode">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#detail-burrito">Exit</a>
+  <div class="topbar-title">Copycat Chipotle Burrito Bowl</div>
+  <span class="small muted" data-page-label>Steps 1–3 of 6</span>
+</header>
+<div class="timerbar" aria-label="Running timers">
+  <span class="small strong">Timers</span>
+  <span class="timer" data-secs="760">Rice <b>12:40</b></span>
+  <span class="timer" data-secs="245">Marinate <b>04:05</b></span>
+  <button class="chip chip-sm" type="button" data-add-timer>+ Timer</button>
+</div>
+<div class="scroll">
+  <div class="cook-page" data-label="Steps 1–3 of 6">
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">1</span><span class="small muted strong">Step 1</span></div>
+        <p>Rinse <b>1 cup basmati rice</b>. Simmer it covered with <b>1¼ cups water</b> and <b>1 bay leaf</b>.</p>
+        <button class="chip self-start" type="button" data-start-timer="900" data-label="Rice">Start 15 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">2</span><span class="small muted strong">Step 2</span></div>
+        <p>Blend <b>2 chipotle peppers</b>, <b>3 garlic cloves</b>, <b>1 tsp cumin</b>, and <b>2 tbsp olive oil</b> into a paste.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">3</span><span class="small muted strong">Step 3</span></div>
+        <p>Coat <b>1½ lb chicken thighs</b> in the paste. Let them sit while the rice cooks.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Marinate">Start 10 min timer</button>
+      </article>
+    </div>
+  </div>
+  <div class="cook-page" data-label="Steps 4–6 of 6" hidden>
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">4</span><span class="small muted strong">Step 4</span></div>
+        <p>Sear the chicken in a hot pan, about <b>5 min per side</b>. Rest it, then slice.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Chicken">Start 10 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">5</span><span class="small muted strong">Step 5</span></div>
+        <p>Fluff the rice. Stir in the juice of <b>1 lime</b> and <b>¼ cup cilantro</b>.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">6</span><span class="small muted strong">Step 6</span></div>
+        <p>Warm <b>1 can black beans</b>. Build bowls with rice, beans, chicken, and <b>1 cup corn salsa</b>.</p>
+        
+      </article>
+    </div>
+  </div>
+</div>
+<footer class="cook-foot" data-done="detail-burrito">
+  <div class="row">
+    <button class="btn is-disabled" type="button" data-page-prev>‹ Previous</button>
+    <button class="btn btn-primary grow" type="button" data-page-next>Next steps ›</button>
+  </div>
+  <details class="assistant" open>
+    <summary class="btn">Ask assistant <span class="small muted">Type or speak</span></summary>
+    <div class="assistant-panel">
+      <div class="bubble bubble-me">Can I use brown rice?</div>
+      <div class="bubble">Yes. Simmer brown rice for 40 minutes with 1½ cups water, and start it before you marinate the chicken.</div>
+      <div class="row">
+        <input class="input grow" type="text" placeholder="Ask about this recipe" aria-label="Ask the assistant">
+        <button class="btn btn-sm" type="button">Send</button>
+      </div>
+      <button class="btn" type="button">Hold to speak</button>
+    </div>
+  </details>
+</footer>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">E. Cookbook</h2>
+  <p class="muted">Flow C starts on 14 Recipe detail with Send to cookbook, then 18, 19, 20.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">17 · Cookbook home</figcaption>
+  <div class="frame">
+<!-- ========== 17 Cookbook home ========== -->
+<section class="screen has-nav" data-label="17 Cookbook home">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab is-active" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><h1 class="page-title grow">Cookbook</h1></header>
+<div class="scroll">
+  <div class="pad">
+    <div class="box-card">
+      <div class="row">
+        <span class="device-thumb"></span>
+        <div class="row-text grow"><span class="row-title">Kitchen cookbook</span><span class="row-sub"><span class="dot"></span>Connected · synced 2 min ago</span></div>
+      </div>
+      <div class="row"><span class="small">Battery</span><div class="battery"><span style="width: 82%"></span></div><span class="small strong">82%</span></div>
+    </div>
+    <div class="row"><h2 class="h3 grow">On your cookbook (3)</h2><a class="u small" href="#device-home">See it on the device</a></div>
+    <div class="list">
+      <div class="list-row"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Grandma's Tamales</span><span class="row-sub">Sent Oct 30</span></div><button class="btn btn-sm" type="button">Remove</button></div>
+      <div class="list-row"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Dad's Weeknight Chili</span><span class="row-sub">Sent Oct 24</span></div><button class="btn btn-sm" type="button">Remove</button></div>
+      <div class="list-row"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Brown Butter Banana Bread</span><span class="row-sub">Sent Oct 12</span></div><button class="btn btn-sm" type="button">Remove</button></div>
+    </div>
+    <a class="btn btn-primary" href="#send">Send recipes</a>
+    <div class="callout">
+      <span class="row-title">No cookbook device?</span>
+      <span class="row-sub">Read any recipe as a book page right in the app.</span>
+      <a class="btn btn-sm self-start" href="#cookbook-view">Open book view</a>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">18 · Send recipes</figcaption>
+  <div class="frame">
+<!-- ========== 18 Send recipes ========== -->
+<section class="screen has-nav" data-label="18 Send recipes">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab is-active" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><a class="link" href="#cookbook">‹ Cookbook</a><div class="topbar-title">Send recipes</div></header>
+<div class="scroll">
+  <div class="pad">
+    <input class="input search" type="search" placeholder="Search recipes" aria-label="Search recipes">
+    <div class="row"><span class="small strong grow" data-count-label>2 recipes selected</span><button class="u small" type="button" data-select-all>Select all</button></div>
+    <div class="stack-sm">
+      <label class="check-row"><input type="checkbox" name="send" value="burrito" checked><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Copycat Chipotle Burrito Bowl</span><span class="row-sub">Instagram · 40 min</span></div></label>
+      <label class="check-row"><input type="checkbox" name="send" value="tamales"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Grandma's Tamales</span><span class="row-sub">Already on your cookbook</span></div></label>
+      <label class="check-row"><input type="checkbox" name="send" value="lemon" checked><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Lemon Ricotta Pasta</span><span class="row-sub">Link · 20 min</span></div></label>
+      <label class="check-row"><input type="checkbox" name="send" value="chili"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Dad's Weeknight Chili</span><span class="row-sub">Already on your cookbook</span></div></label>
+      <label class="check-row"><input type="checkbox" name="send" value="banana"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Brown Butter Banana Bread</span><span class="row-sub">Already on your cookbook</span></div></label>
+    </div>
+  </div>
+</div>
+<div class="actionbar"><a class="btn btn-primary" href="#eink-preview" data-send-next>Preview on cookbook</a></div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">19 · E-ink preview</figcaption>
+  <div class="frame">
+<!-- ========== 19 E-ink preview ========== -->
+<section class="screen has-nav" data-label="19 E-ink preview">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab is-active" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><a class="link" href="#send">‹ Back</a><div class="topbar-title">Preview on cookbook</div></header>
+<div class="scroll">
+  <div class="pad center-items">
+    <p class="small muted center">This is how <b>Copycat Chipotle Burrito Bowl</b> will look on your cookbook's e-ink screen.</p>
+    <div class="device">
+    <div class="device-screen eink">
+      <div class="eink-head"><span>AL DENTE</span><span>Page 1 of 3</span></div>
+      <div class="eink-title">Copycat Chipotle Burrito Bowl</div>
+      <div>Serves 4 · 40 min</div>
+      <div class="eink-section">INGREDIENTS</div>
+      <ul class="eink-ing">
+        <li>1 cup basmati rice</li>
+        <li>1 bay leaf</li>
+        <li>2 chipotle peppers in adobo</li>
+        <li>3 garlic cloves</li>
+        <li>1 tsp ground cumin</li>
+        <li>2 tbsp olive oil</li>
+        <li>1½ lb chicken thighs</li>
+        <li>1 lime</li>
+        <li>¼ cup cilantro, chopped</li>
+      </ul>
+      <div class="eink-foot"><span>Back/Menu: library</span><span>Next: steps ›</span></div>
+    </div>
+    <div class="device-buttons">
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Previous</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Next</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Select</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Back/Menu</span></div>
+    </div>
+  </div>
+    <div class="note-box"><b>Note:</b> Device has 4 buttons: Previous, Next, Select, Back/Menu</div>
+  </div>
+</div>
+<div class="actionbar">
+  <a class="btn" href="#send">Edit selection</a>
+  <a class="btn btn-primary" href="#sent"><span>Send <span data-count>2 recipes</span></span></a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">20 · Sent confirmation</figcaption>
+  <div class="frame">
+<!-- ========== 20 Sent confirmation ========== -->
+<section class="screen has-nav" data-label="20 Sent confirmation">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab is-active" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<div class="center-stack">
+  <div class="big-check" aria-hidden="true">✓</div>
+  <h1 class="h1">Sent to your cookbook</h1>
+  <p class="muted"><span data-count>2 recipes</span> will show up on the device's Home screen in a few seconds.</p>
+  <div class="stack w-full">
+    <a class="btn btn-primary" href="#cookbook">Back to Cookbook</a>
+    <a class="btn" href="#device-home">See it on the device</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">21 · In-app cookbook view</figcaption>
+  <div class="frame">
+<!-- ========== 21 In-app cookbook view ========== -->
+<section class="screen has-nav" data-label="21 In-app cookbook view">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab is-active" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><a class="link" href="#cookbook">‹ Cookbook</a><div class="topbar-title">Book view</div><button class="link" type="button">Contents</button></header>
+<div class="scroll">
+  <div class="pad">
+    <p class="small muted">No device? Read your recipes here, one page at a time.</p>
+    <div class="book">
+      <article class="page">
+        <div class="page-head"><span>Al Dente cookbook</span><span>Weeknight</span></div>
+        <h2 class="h1">Copycat Chipotle Burrito Bowl</h2>
+        <p class="small muted">Serves 4 · 40 min · From Instagram</p>
+        <h3 class="page-sub">Ingredients</h3>
+        <ul class="page-list">
+          <li>1 cup basmati rice</li>
+          <li>1 bay leaf</li>
+          <li>2 chipotle peppers in adobo</li>
+          <li>3 garlic cloves</li>
+          <li>1 tsp ground cumin</li>
+          <li>2 tbsp olive oil</li>
+          <li>1½ lb chicken thighs</li>
+          <li>1 lime</li>
+          <li>¼ cup cilantro, chopped</li>
+          <li>1 can black beans (15 oz)</li>
+          <li>1 cup corn salsa</li>
+        </ul>
+        <div class="page-foot">12</div>
+      </article>
+      <article class="page">
+        <div class="page-head"><span>Burrito Bowl</span><span>Steps</span></div>
+        <ol class="page-steps">
+          <li><b>1.</b> Rinse 1 cup basmati rice. Simmer it covered with 1¼ cups water and 1 bay leaf.</li>
+          <li><b>2.</b> Blend 2 chipotle peppers, 3 garlic cloves, 1 tsp cumin, and 2 tbsp olive oil into a paste.</li>
+          <li><b>3.</b> Coat 1½ lb chicken thighs in the paste. Let them sit while the rice cooks.</li>
+          <li><b>4.</b> Sear the chicken in a hot pan, about 5 min per side. Rest it, then slice.</li>
+          <li><b>5.</b> Fluff the rice. Stir in the juice of 1 lime and ¼ cup cilantro.</li>
+          <li><b>6.</b> Warm 1 can black beans. Build bowls with rice, beans, chicken, and 1 cup corn salsa.</li>
+        </ol>
+        <div class="page-foot">13</div>
+      </article>
+    </div>
+    <div class="row">
+      <button class="btn grow" type="button" data-book-prev>‹ Previous page</button>
+      <button class="btn btn-primary grow" type="button" data-book-next>Next page ›</button>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">F. Cookbook device</h2>
+  <p class="muted">The physical e-ink device. It has 4 buttons: Previous, Next, Select, Back/Menu.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">22 · Device home</figcaption>
+  <div class="frame">
+<!-- ========== 22 Device home ========== -->
+<section class="screen stage" data-label="22 Device home">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#cookbook">‹ Cookbook</a><div class="topbar-title">Device: Home</div></header>
+<div class="scroll">
+  <div class="pad center-items">
+    <p class="small muted center">Recipes you send show up here. Select opens one. Back/Menu opens the library.</p>
+    <div class="device">
+    <div class="device-screen eink">
+      <div class="eink-head"><span>AL DENTE</span><span>Battery 82%</span></div>
+      <div class="eink-title">Recently sent</div>
+      <div class="eink-list">
+        <div class="eink-row is-selected"><span>Copycat Chipotle Burrito Bowl</span><span>Today</span></div>
+        <div class="eink-row"><span>Lemon Ricotta Pasta</span><span>Today</span></div>
+        <div class="eink-row"><span>Grandma's Tamales</span><span>Oct 30</span></div>
+        <div class="eink-row"><span>Dad's Weeknight Chili</span><span>Oct 24</span></div>
+      </div>
+      <div class="eink-foot"><span>Select: open</span><span>Back/Menu: library</span></div>
+    </div>
+    <div class="device-buttons">
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Previous</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Next</span></div>
+      <a class="dbtn" href="#device-cook"><span class="dbtn-key"></span><span class="dbtn-label">Select</span></a>
+      <a class="dbtn" href="#device-library"><span class="dbtn-key"></span><span class="dbtn-label">Back/Menu</span></a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">23 · Device library browse</figcaption>
+  <div class="frame">
+<!-- ========== 23 Device library browse ========== -->
+<section class="screen stage" data-label="23 Device library browse">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#cookbook">‹ Cookbook</a><div class="topbar-title">Device: Library</div></header>
+<div class="scroll">
+  <div class="pad center-items">
+    <p class="small muted center">Every recipe on the cookbook. Previous and Next move the highlight.</p>
+    <div class="device">
+    <div class="device-screen eink">
+      <div class="eink-head"><span>LIBRARY</span><span>All · 5 recipes</span></div>
+      <div class="eink-list">
+        <div class="eink-row"><span>Copycat Chipotle Burrito Bowl</span><span>40 min</span></div>
+        <div class="eink-row is-selected"><span>Grandma's Tamales</span><span>3 hr</span></div>
+        <div class="eink-row"><span>Lemon Ricotta Pasta</span><span>20 min</span></div>
+        <div class="eink-row"><span>Dad's Weeknight Chili</span><span>1 hr</span></div>
+        <div class="eink-row"><span>Brown Butter Banana Bread</span><span>1 hr 10 min</span></div>
+      </div>
+      <div class="eink-foot"><span>Select: open</span><span>Back/Menu: home</span></div>
+    </div>
+    <div class="device-buttons">
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Previous</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Next</span></div>
+      <a class="dbtn" href="#device-cook"><span class="dbtn-key"></span><span class="dbtn-label">Select</span></a>
+      <a class="dbtn" href="#device-home"><span class="dbtn-key"></span><span class="dbtn-label">Back/Menu</span></a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">24 · Device cook view</figcaption>
+  <div class="frame">
+<!-- ========== 24 Device cook view ========== -->
+<section class="screen stage" data-label="24 Device cook view">
+
+<div class="main">
+<header class="topbar"><a class="link" href="#cookbook">‹ Cookbook</a><div class="topbar-title">Device: Cook view</div></header>
+<div class="scroll">
+  <div class="pad center-items">
+    <p class="small muted center">Three steps fit on each page. Next turns the page.</p>
+    <div class="device">
+    <div class="device-screen eink">
+      <div class="eink-head"><span>BURRITO BOWL</span><span>Page 2 of 3</span></div>
+      <div class="eink-steps">
+        <div class="eink-step"><span class="eink-num">1</span><p>Rinse <b>1 cup basmati rice</b>. Simmer it covered with <b>1¼ cups water</b> and <b>1 bay leaf</b>.</p></div>
+        <div class="eink-step"><span class="eink-num">2</span><p>Blend <b>2 chipotle peppers</b>, <b>3 garlic cloves</b>, <b>1 tsp cumin</b>, and <b>2 tbsp olive oil</b> into a paste.</p></div>
+        <div class="eink-step"><span class="eink-num">3</span><p>Coat <b>1½ lb chicken thighs</b> in the paste. Let them sit while the rice cooks.</p></div>
+      </div>
+      <div class="eink-foot"><span>‹ Ingredients</span><span>Steps 4–6 ›</span></div>
+    </div>
+    <div class="device-buttons">
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Previous</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Next</span></div>
+      <div class="dbtn"><span class="dbtn-key"></span><span class="dbtn-label">Select</span></div>
+      <a class="dbtn" href="#device-home"><span class="dbtn-key"></span><span class="dbtn-label">Back/Menu</span></a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">G. Profile</h2>
+  
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">25 · Profile</figcaption>
+  <div class="frame">
+<!-- ========== 25 Profile ========== -->
+<section class="screen has-nav" data-label="25 Profile">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab is-active" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><h1 class="page-title grow">Profile</h1><button class="link" type="button">Settings ›</button></header>
+<div class="scroll">
+  <div class="pad">
+    <div class="row">
+      <div class="ph ph-avatar-sm"><span>[Photo]</span></div>
+      <div class="row-text grow"><span class="h2">Jordan Lee</span><span class="small muted">Home cook since 2019</span></div>
+      <button class="btn btn-sm" type="button">Edit</button>
+    </div>
+    <div class="section">
+      <h2 class="h3">Dietary needs</h2>
+      <div class="row row-wrap"><span class="pill">Dairy-free</span><span class="pill">Nut allergy</span><button class="u small" type="button">Edit</button></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5</b><span class="small muted">Recipes</span></div>
+      <div class="stat"><b>12</b><span class="small muted">Cooked</span></div>
+      <div class="stat"><b>2</b><span class="small muted">Communities</span></div>
+    </div>
+    <div class="section">
+      <div class="row"><h2 class="h3 grow">Posts</h2><button class="u small" type="button">See all</button></div>
+      <div class="thumbs"><div class="ph "><span>[Photo]</span></div><div class="ph "><span>[Photo]</span></div><div class="ph "><span>[Photo]</span></div></div>
+    </div>
+    <div class="section">
+      <h2 class="h3">Cooking history</h2>
+      <div class="list">
+        <a class="list-row" href="#detail-burrito" data-r="burrito"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Copycat Chipotle Burrito Bowl</span><span class="row-sub">Made Oct 30 · ★★★★☆</span></div></a>
+        <a class="list-row" href="#detail-chili" data-r="chili"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Dad's Weeknight Chili</span><span class="row-sub">Made Oct 26 · ★★★★★</span></div></a>
+        <a class="list-row" href="#detail-tamales" data-r="tamales"><div class="ph ph-thumb-sm"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Grandma's Tamales</span><span class="row-sub">Made Dec 24, 2025 · ★★★★★</span></div></a>
+      </div>
+    </div>
+    <div class="section">
+      <h2 class="h3">Communities</h2>
+      <div class="list">
+        <a class="list-row" href="#community"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Weeknight Cooks</span><span class="row-sub">2.1k members</span></div><span class="chev">›</span></a>
+        <a class="list-row" href="#community"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Tamale Season</span><span class="row-sub">640 members</span></div><span class="chev">›</span></a>
+      </div>
+    </div>
+    <button class="list-row" type="button"><span class="shape shape-sm"></span><span class="row-title grow">Settings</span><span class="chev">›</span></button>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">H. Community</h2>
+  <p class="muted">Posts from the communities you joined. Save a recipe from a post, or share one from your library.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">26 · Community feed</figcaption>
+  <div class="frame">
+<!-- ========== 26 Community feed ========== -->
+<section class="screen has-nav" data-label="26 Community feed">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab is-active" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <h1 class="page-title grow">Community</h1>
+  <a class="btn btn-sm btn-primary wide-only" href="#new-post" data-r="lemon">+ New post</a>
+</header>
+<div class="scroll">
+  <div class="chips chips-top" role="group" aria-label="Communities">
+    <button class="chip is-active" type="button" data-community="all">All</button>
+    <button class="chip" type="button" data-community="weeknight">Weeknight Cooks</button>
+    <button class="chip" type="button" data-community="tamales">Tamale Season</button>
+    <button class="chip chip-dashed" type="button">+ Find communities</button>
+  </div>
+  <div class="pad pad-fab narrow">
+    <article class="post" data-in="weeknight">
+      <div class="row"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Priya Shah</span><span class="row-sub">Weeknight Cooks · 2h</span></div></div>
+      <a class="ph ph-card" href="#post"><span>[Photo]</span></a>
+      <p>Third time making this in a month. Broil it for the last 2 minutes so the glaze gets sticky.</p>
+      <div class="mini-card">
+        <div class="ph ph-thumb-sm"><span>[Photo]</span></div>
+        <div class="row-text grow"><span class="row-title">Miso Butter Salmon</span><span class="row-sub">25 min · 4 servings</span><span class="tag">Contains dairy</span></div>
+        <button class="btn btn-sm" type="button" data-pressed="Saved ✓">Save</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-sm" type="button" data-pressed="♥ 25">♡ 24</button>
+        <a class="btn btn-sm" href="#post">Comments · 6</a>
+      </div>
+    </article>
+    <article class="post" data-in="weeknight">
+      <div class="row"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Marcus Bell</span><span class="row-sub">Weeknight Cooks · 5h</span></div></div>
+      <span class="pill self-start">Question</span>
+      <p class="h3">What do you make when you have 20 minutes and no energy? I need new ideas for this week.</p>
+      <div class="row">
+        <button class="btn btn-sm" type="button" data-pressed="♥ 9">♡ 8</button>
+        <button class="btn btn-sm" type="button">Answers · 12</button>
+      </div>
+    </article>
+    <article class="post" data-in="tamales">
+      <div class="row"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Ana Ruiz</span><span class="row-sub">Tamale Season · Yesterday</span></div></div>
+      <div class="ph ph-card"><span>[Photo]</span></div>
+      <div class="row"><span class="pill">Made it</span><span aria-label="5 out of 5">★★★★★</span></div>
+      <p>Made Jordan's tamales with my mom. We swapped the lard for vegetable shortening and they still came out fluffy.</p>
+      <div class="mini-card">
+        <div class="ph ph-thumb-sm"><span>[Photo]</span></div>
+        <div class="row-text grow"><span class="row-title">Grandma's Tamales</span><span class="row-sub">Shared by you · 3 hr</span></div>
+        <a class="btn btn-sm" href="#detail-tamales" data-r="tamales">Open</a>
+      </div>
+      <div class="row">
+        <button class="btn btn-sm" type="button" data-pressed="♥ 19">♡ 18</button>
+        <button class="btn btn-sm" type="button">Comments · 3</button>
+      </div>
+    </article>
+    <article class="post" data-in="weeknight">
+      <div class="row"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Sam Okafor</span><span class="row-sub">Weeknight Cooks · 2d</span></div></div>
+      <div class="ph ph-card"><span>[Photo]</span></div>
+      <p>One pan, no boiling. My kids ask for this every week.</p>
+      <div class="mini-card">
+        <div class="ph ph-thumb-sm"><span>[Photo]</span></div>
+        <div class="row-text grow"><span class="row-title">Sheet-Pan Gnocchi with Sausage</span><span class="row-sub">30 min · 4 servings</span></div>
+        <button class="btn btn-sm" type="button" data-pressed="Saved ✓">Save</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-sm" type="button" data-pressed="♥ 32">♡ 31</button>
+        <button class="btn btn-sm" type="button">Comments · 4</button>
+      </div>
+    </article>
+    <article class="post" data-in="tamales">
+      <div class="row"><span class="shape shape-circle"></span><div class="row-text grow"><span class="row-title">Lupe Garcia</span><span class="row-sub">Tamale Season · 3d</span></div></div>
+      <p>Masa spreading party at my place Saturday. Here's the filling I'm making, enough for 4 dozen.</p>
+      <div class="mini-card">
+        <div class="ph ph-thumb-sm"><span>[Photo]</span></div>
+        <div class="row-text grow"><span class="row-title">Red Chile Pork Filling</span><span class="row-sub">2 hr 30 min · 4 dozen</span></div>
+        <button class="btn btn-sm" type="button" data-pressed="Saved ✓">Save</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-sm" type="button" data-pressed="♥ 15">♡ 14</button>
+        <button class="btn btn-sm" type="button">Comments · 7</button>
+      </div>
+    </article>
+  </div>
+</div>
+<a class="fab narrow-only" href="#new-post" data-r="lemon" aria-label="New post">+</a>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">27 · Post and comments</figcaption>
+  <div class="frame">
+<!-- ========== 27 Post and comments ========== -->
+<section class="screen has-nav" data-label="27 Post and comments">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab is-active" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar"><a class="link" href="#community">‹ Community</a><div class="topbar-title">Weeknight Cooks</div></header>
+<div class="scroll">
+  <div class="pad narrow">
+    <div class="row">
+      <span class="shape shape-circle"></span>
+      <div class="row-text grow"><span class="row-title">Priya Shah</span><span class="row-sub">Weeknight Cooks · 2h</span></div>
+      <button class="btn btn-sm" type="button" data-pressed="Following">Follow</button>
+    </div>
+    <div class="ph ph-card"><span>[Photo]</span></div>
+    <p>Third time making this in a month. Broil it for the last 2 minutes so the glaze gets sticky. I serve it over rice with whatever greens are in the fridge.</p>
+    <div class="box-card">
+      <div class="row"><div class="ph ph-thumb"><span>[Photo]</span></div><div class="row-text grow"><span class="row-title">Miso Butter Salmon</span><span class="row-sub">4 servings · 25 min</span></div></div>
+      <div class="banner">This has butter, and you're dairy-free. Ana swapped in olive oil (see the comments).</div>
+      <ul class="page-list">
+        <li>4 salmon fillets</li>
+        <li>3 tbsp white miso</li>
+        <li>2 tbsp butter, softened</li>
+        <li>1 tbsp honey</li>
+      </ul>
+      <span class="small muted">+ 3 more ingredients · 4 steps</span>
+      <button class="btn btn-primary" type="button" data-pressed="Saved to Library ✓">Save to Library</button>
+    </div>
+    <div class="row"><button class="btn btn-sm" type="button" data-pressed="♥ 25">♡ 24</button><span class="small muted">6 comments</span></div>
+    <section class="section">
+      <h2 class="h3">Comments</h2>
+      <button class="u small self-start" type="button">See 2 earlier comments</button>
+      <ul class="comments">
+        <li><span class="shape shape-sm shape-circle"></span><div class="row-text grow"><span class="small"><b>Marcus Bell</b> · 1h</span><p>White or red miso?</p></div></li>
+        <li><span class="shape shape-sm shape-circle"></span><div class="row-text grow"><span class="small"><b>Priya Shah</b> · Author · 50m</span><p>White. Red gets too salty under the broiler.</p></div></li>
+        <li><span class="shape shape-sm shape-circle"></span><div class="row-text grow"><span class="small"><b>Ana Ruiz</b> · 40m</span><p>Made it last night with olive oil instead of butter. Still great.</p></div></li>
+        <li><span class="shape shape-sm shape-circle"></span><div class="row-text grow"><span class="small"><b>Sam Okafor</b> · 12m</span><p>Saving this for Thursday.</p></div></li>
+      </ul>
+    </section>
+  </div>
+</div>
+<div class="composer">
+  <input class="input grow" type="text" placeholder="Add a comment" aria-label="Add a comment">
+  <button class="btn btn-primary" type="button">Post</button>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">28 · New post</figcaption>
+  <div class="frame">
+<!-- ========== 28 New post ========== -->
+<section class="screen" data-label="28 New post">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#community">Cancel</a>
+  <div class="topbar-title center">New post</div>
+  <a class="link strong" href="#community" data-posted>Post</a>
+</header>
+<div class="scroll">
+  <div class="pad narrow">
+    <div class="field">
+      <span class="label">Post to</span>
+      <div class="row row-wrap">
+        <button class="chip is-active" type="button">Weeknight Cooks</button>
+        <button class="chip" type="button">Tamale Season</button>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label">Recipe</span>
+      <div class="mini-card">
+        <div class="ph ph-thumb-sm"><span>[Photo]</span></div>
+        <div class="row-text grow"><span class="row-title" data-bind="title">Lemon Ricotta Pasta</span><span class="row-sub">From your library</span></div>
+        <button class="u small" type="button">Change</button>
+      </div>
+    </div>
+    <div class="ph ph-banner"><span>+ Add photo</span></div>
+    <label class="field"><span class="label">Caption</span><textarea class="input" rows="4">This one is on repeat at our house. Let me know if you try it!</textarea></label>
+    <p class="hint">Members of Weeknight Cooks can see the full recipe and save a copy. Your notes stay private.</p>
+    <a class="btn btn-primary" href="#community" data-posted>Post</a>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+<section class="g-row">
+<div class="g-row-head">
+  <h2 class="h1">I. Tablet (768 × 1024)</h2>
+  <p class="muted">At 768px and wider the tab bar becomes a left sidebar.</p>
+</div>
+<div class="g-frames">
+<figure class="g-item">
+  <figcaption class="g-label">07 · Library</figcaption>
+  <div class="frame frame-tablet">
+<!-- ========== 07 Library ========== -->
+<section class="screen has-nav" data-label="07 Library">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <h1 class="page-title grow">Library</h1>
+  <a class="btn btn-sm btn-primary wide-only" href="#add-menu">+ Add recipe</a>
+</header>
+<div class="scroll">
+  <div class="search-wrap"><input class="input search" type="search" placeholder="Search recipes" aria-label="Search recipes" data-search></div>
+  <div class="chips" role="group" aria-label="Collections">
+    <button class="chip is-active" type="button" data-filter="all">All</button>
+    <button class="chip" type="button" data-filter="weeknight">Weeknight</button>
+    <button class="chip" type="button" data-filter="family">Family recipes</button>
+    <button class="chip" type="button" data-filter="baking">Baking</button>
+    <button class="chip" type="button" data-filter="meal-prep">Meal prep</button>
+    <button class="chip" type="button" data-filter="holidays">Holidays</button>
+    <button class="chip chip-dashed" type="button">+ New</button>
+  </div>
+  <div class="pad pad-fab">
+    <div class="cards">
+      <a class="card" href="#detail-burrito" data-r="burrito" data-collections="weeknight meal-prep" data-title="copycat chipotle burrito bowl">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Copycat Chipotle Burrito Bowl</span>
+        <span class="card-meta">Instagram · 40 min</span>
+      </a>
+      <a class="card" href="#detail-tamales" data-r="tamales" data-collections="family holidays" data-title="grandma's tamales">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Grandma's Tamales</span>
+        <span class="card-meta">Photo + voice memo · 3 hr</span>
+      </a>
+      <a class="card" href="#detail-lemon" data-r="lemon" data-collections="weeknight" data-title="lemon ricotta pasta">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Lemon Ricotta Pasta</span>
+        <span class="card-meta">Link · 20 min</span>
+      </a>
+      <a class="card" href="#detail-chili" data-r="chili" data-collections="family meal-prep" data-title="dad's weeknight chili">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Dad's Weeknight Chili</span>
+        <span class="card-meta">Voice memo · 1 hr</span>
+      </a>
+      <a class="card" href="#detail-banana" data-r="banana" data-collections="baking" data-title="brown butter banana bread">
+        <div class="ph ph-card"><span>[Photo]</span></div>
+        <span class="card-title">Brown Butter Banana Bread</span>
+        <span class="card-meta">Link · 1 hr 10 min</span>
+      </a>
+    </div>
+  </div>
+</div>
+<a class="fab narrow-only" href="#add-menu" aria-label="Add recipe">+</a>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">14 · Recipe detail</figcaption>
+  <div class="frame frame-tablet">
+<!-- ========== 14 Recipe detail ========== -->
+<section class="screen has-nav" data-label="14 Recipe detail">
+<nav class="nav" aria-label="Main">
+  <div class="nav-brand">Al Dente</div>
+  <a class="tab is-active" href="#library"><span class="tab-shape"></span>Recipes</a>
+  <a class="tab" href="#cookbook"><span class="tab-shape book"></span>Cookbook</a>
+  <a class="tab" href="#community"><span class="tab-shape bubble"></span>Community</a>
+  <a class="tab" href="#profile"><span class="tab-shape circle"></span>Profile</a>
+</nav>
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#library">‹ Library</a>
+  <span class="topbar-title"></span>
+  <a class="link" href="#new-post" data-r="burrito">Share</a>
+  <a class="link" href="#review-burrito" data-r="burrito">Edit</a>
+</header>
+<div class="scroll">
+  <div class="pad">
+    <div class="ph ph-hero"><span>[Photo]</span></div>
+    <div class="stack-sm">
+      <h1 class="h1">Copycat Chipotle Burrito Bowl</h1>
+      <div class="row row-wrap"><span class="pill">40 min</span><span class="small muted">Made 3 times</span></div>
+    </div>
+    <div class="source">
+    <span class="label">Source</span>
+    <div class="row"><span class="shape"></span><div class="row-text grow"><span class="row-title">Instagram post</span><span class="row-sub">@weeknightbowls</span></div><a class="u small" href="#instagram">View post</a></div>
+  </div>
+    <div class="row">
+      <span class="label grow">Servings</span>
+      <div class="stepper"><button type="button" aria-label="Fewer">−</button><span><b>4</b> servings</span><button type="button" aria-label="More">+</button></div>
+    </div>
+    <div class="detail-cols">
+      <section class="section">
+        <h2 class="h3">Ingredients</h2>
+        <ul class="ingredients">
+          <li><span class="box"></span>1 cup basmati rice</li>
+          <li><span class="box"></span>1 bay leaf</li>
+          <li><span class="box"></span>2 chipotle peppers in adobo</li>
+          <li><span class="box"></span>3 garlic cloves</li>
+          <li><span class="box"></span>1 tsp ground cumin</li>
+          <li><span class="box"></span>2 tbsp olive oil</li>
+          <li><span class="box"></span>1½ lb chicken thighs</li>
+          <li><span class="box"></span>1 lime</li>
+          <li><span class="box"></span>¼ cup cilantro, chopped</li>
+          <li><span class="box"></span>1 can black beans (15 oz)</li>
+          <li><span class="box"></span>1 cup corn salsa</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2 class="h3">Steps</h2>
+        <ol class="steps">
+          <li><span class="step-num">1</span><p>Rinse 1 cup basmati rice. Simmer it covered with 1¼ cups water and 1 bay leaf.</p></li>
+          <li><span class="step-num">2</span><p>Blend 2 chipotle peppers, 3 garlic cloves, 1 tsp cumin, and 2 tbsp olive oil into a paste.</p></li>
+          <li><span class="step-num">3</span><p>Coat 1½ lb chicken thighs in the paste. Let them sit while the rice cooks.</p></li>
+          <li><span class="step-num">4</span><p>Sear the chicken in a hot pan, about 5 min per side. Rest it, then slice.</p></li>
+          <li><span class="step-num">5</span><p>Fluff the rice. Stir in the juice of 1 lime and ¼ cup cilantro.</p></li>
+          <li><span class="step-num">6</span><p>Warm 1 can black beans. Build bowls with rice, beans, chicken, and 1 cup corn salsa.</p></li>
+        </ol>
+      </section>
+    </div>
+    <section class="section">
+      <h2 class="h3">Your rating</h2>
+      <div class="row">
+        <span class="stars" aria-label="4 out of 5">★★★★☆</span>
+        <span class="spacer"></span>
+        <button class="btn btn-sm" type="button" data-pressed="Made it today ✓">I made this</button>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="h3">Notes</h2>
+      <textarea class="input" rows="3" aria-label="Notes">Double the chipotle paste and freeze half for next week.</textarea>
+    </section>
+  </div>
+</div>
+<div class="actionbar">
+  <a class="btn" href="#send" data-r="burrito" data-pick>Send to cookbook</a>
+  <a class="btn btn-primary" href="#cook-burrito" data-r="burrito">Start cooking</a>
+</div>
+</div>
+
+</section>
+  </div>
+</figure>
+<figure class="g-item">
+  <figcaption class="g-label">15 · Cook mode</figcaption>
+  <div class="frame frame-tablet">
+<!-- ========== 15 Cook mode ========== -->
+<section class="screen cook" data-label="15 Cook mode">
+
+<div class="main">
+<header class="topbar">
+  <a class="link" href="#detail-burrito">Exit</a>
+  <div class="topbar-title">Copycat Chipotle Burrito Bowl</div>
+  <span class="small muted" data-page-label>Steps 1–3 of 6</span>
+</header>
+<div class="timerbar" aria-label="Running timers">
+  <span class="small strong">Timers</span>
+  <span class="timer" data-secs="760">Rice <b>12:40</b></span>
+  <span class="timer" data-secs="245">Marinate <b>04:05</b></span>
+  <button class="chip chip-sm" type="button" data-add-timer>+ Timer</button>
+</div>
+<div class="scroll">
+  <div class="cook-page" data-label="Steps 1–3 of 6">
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">1</span><span class="small muted strong">Step 1</span></div>
+        <p>Rinse <b>1 cup basmati rice</b>. Simmer it covered with <b>1¼ cups water</b> and <b>1 bay leaf</b>.</p>
+        <button class="chip self-start" type="button" data-start-timer="900" data-label="Rice">Start 15 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">2</span><span class="small muted strong">Step 2</span></div>
+        <p>Blend <b>2 chipotle peppers</b>, <b>3 garlic cloves</b>, <b>1 tsp cumin</b>, and <b>2 tbsp olive oil</b> into a paste.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">3</span><span class="small muted strong">Step 3</span></div>
+        <p>Coat <b>1½ lb chicken thighs</b> in the paste. Let them sit while the rice cooks.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Marinate">Start 10 min timer</button>
+      </article>
+    </div>
+  </div>
+  <div class="cook-page" data-label="Steps 4–6 of 6" hidden>
+    <div class="cook-steps">
+      <article class="cook-step">
+        <div class="row"><span class="step-num">4</span><span class="small muted strong">Step 4</span></div>
+        <p>Sear the chicken in a hot pan, about <b>5 min per side</b>. Rest it, then slice.</p>
+        <button class="chip self-start" type="button" data-start-timer="600" data-label="Chicken">Start 10 min timer</button>
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">5</span><span class="small muted strong">Step 5</span></div>
+        <p>Fluff the rice. Stir in the juice of <b>1 lime</b> and <b>¼ cup cilantro</b>.</p>
+        
+      </article>
+      <article class="cook-step">
+        <div class="row"><span class="step-num">6</span><span class="small muted strong">Step 6</span></div>
+        <p>Warm <b>1 can black beans</b>. Build bowls with rice, beans, chicken, and <b>1 cup corn salsa</b>.</p>
+        
+      </article>
+    </div>
+  </div>
+</div>
+<footer class="cook-foot" data-done="detail-burrito">
+  <div class="row">
+    <button class="btn is-disabled" type="button" data-page-prev>‹ Previous</button>
+    <button class="btn btn-primary grow" type="button" data-page-next>Next steps ›</button>
+  </div>
+  <details class="assistant">
+    <summary class="btn">Ask assistant <span class="small muted">Type or speak</span></summary>
+    <div class="assistant-panel">
+      <div class="bubble bubble-me">Can I use brown rice?</div>
+      <div class="bubble">Yes. Simmer brown rice for 40 minutes with 1½ cups water, and start it before you marinate the chicken.</div>
+      <div class="row">
+        <input class="input grow" type="text" placeholder="Ask about this recipe" aria-label="Ask the assistant">
+        <button class="btn btn-sm" type="button">Send</button>
+      </div>
+      <button class="btn" type="button">Hold to speak</button>
+    </div>
+  </details>
+</footer>
+</div>
+
+</section>
+  </div>
+</figure>
+</div>
+</section>
+
+</body>
+</html>

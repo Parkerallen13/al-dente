@@ -6,8 +6,12 @@ import {
   extractFromFiles,
   extractFromText,
   extractFromUrl,
+  extractFromVoice,
 } from "./lib/extract.js";
+import { askAssistant } from "./lib/assistant.js";
 import * as store from "./lib/storage.js";
+import * as feed from "./lib/community.js";
+import * as profiles from "./lib/profile.js";
 
 try {
   process.loadEnvFile();
@@ -28,16 +32,42 @@ app.get("/api/status", (_req, res) => {
 
 app.post("/api/extract", async (req, res, next) => {
   try {
-    const { url, text, files, note } = req.body ?? {};
+    const { url, text, voice, files, note } = req.body ?? {};
     let recipe;
     if (url) recipe = await extractFromUrl(url);
     else if (files?.length) recipe = await extractFromFiles(files, note);
+    else if (voice) recipe = await extractFromVoice(voice);
     else if (text) recipe = await extractFromText(text);
-    else throw new ExtractError("Provide a link, some text, or a photo.", 400);
+    else throw new ExtractError("Provide a link, some text, a voice memo, or a photo.", 400);
     res.json(recipe);
   } catch (err) {
     next(err);
   }
+});
+
+app.post("/api/assistant", async (req, res, next) => {
+  try {
+    const recipe = await store.getRecipe(req.body?.recipeId);
+    if (!recipe) return res.status(404).json({ error: "Recipe not found." });
+    const question = String(req.body?.question ?? "").trim().slice(0, 1000);
+    if (!question) return res.status(400).json({ error: "Ask a question first." });
+    const history = (Array.isArray(req.body?.history) ? req.body.history : [])
+      .slice(-12)
+      .filter((m) => (m?.role === "user" || m?.role === "assistant") && typeof m.text === "string" && m.text.trim())
+      .map((m) => ({ role: m.role, content: m.text.slice(0, 2000) }));
+    while (history[0]?.role === "assistant") history.shift();
+    res.json({ answer: await askAssistant(recipe, history, question) });
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/api/profile", async (_req, res) => {
+  res.json(await profiles.getProfile());
+});
+
+app.patch("/api/profile", async (req, res) => {
+  res.json(await profiles.updateProfile(req.body ?? {}));
 });
 
 app.get("/api/recipes", async (_req, res) => {
@@ -87,6 +117,47 @@ app.patch("/api/categories/:name", async (req, res) => {
 
 app.delete("/api/categories/:name", async (req, res) => {
   res.json(await store.deleteCategory(req.params.name));
+});
+
+app.get("/api/community", async (_req, res) => {
+  res.json(await feed.getFeed());
+});
+
+app.get("/api/community/posts/:id", async (req, res) => {
+  const post = await feed.getPost(req.params.id);
+  if (!post) return res.status(404).json({ error: "Post not found." });
+  res.json(post);
+});
+
+app.post("/api/community/posts", async (req, res) => {
+  const { community, recipeId, made } = req.body ?? {};
+  const caption = String(req.body?.caption ?? "").trim().slice(0, 2000);
+  if (!feed.COMMUNITIES.some((c) => c.id === community)) return res.status(400).json({ error: "Pick a community to post to." });
+  const recipe = recipeId ? await store.getRecipe(recipeId) : null;
+  if (recipeId && !recipe) return res.status(404).json({ error: "That recipe isn't in your library anymore." });
+  if (!caption && !recipe) return res.status(400).json({ error: "Add a caption or a recipe." });
+  const author = (await profiles.getProfile()).name || "You";
+  res.status(201).json(await feed.addPost({ community, caption, recipe, made: Boolean(made), author }));
+});
+
+app.post("/api/community/posts/:id/like", async (req, res) => {
+  const post = await feed.setLiked(req.params.id, Boolean(req.body?.liked));
+  if (!post) return res.status(404).json({ error: "Post not found." });
+  res.json(post);
+});
+
+app.post("/api/community/posts/:id/comments", async (req, res) => {
+  const text = String(req.body?.text ?? "").trim().slice(0, 1000);
+  if (!text) return res.status(400).json({ error: "Write a comment first." });
+  const post = await feed.addComment(req.params.id, text, (await profiles.getProfile()).name || "You");
+  if (!post) return res.status(404).json({ error: "Post not found." });
+  res.status(201).json(post);
+});
+
+app.delete("/api/community/posts/:id", async (req, res) => {
+  const ok = await feed.deletePost(req.params.id);
+  if (!ok) return res.status(404).json({ error: "You can only delete your own posts." });
+  res.status(204).end();
 });
 
 // SPA fallback so deep links like /recipe/<id> load the app.
