@@ -34,18 +34,34 @@ On Android, install Al Dente from Chrome's menu (**Install app**) and it appears
 - Four layouts to choose from in the **Layout** (☰) menu in the tab bar: Classic, Editorial, Mid-Century and Bistro. They all work the same and are black and white for now; they differ in type, shapes and motion. Bold, Journal and Zine are still styled in `public/styles.css`; add them to `LAYOUTS_OFFERED` in `public/js/core.js` to offer them again
 - Editing and printing
 
-## Setup
+## Getting the code
 
-You need [Node.js](https://nodejs.org) 20.12 or newer.
+The web app lives on the **`web-app`** branch of this repo. `main` is the iOS app. The two have separate histories, so don't merge `web-app` into `main`.
+
+The easiest way is a separate folder, which leaves any iOS checkout you already have untouched:
 
 ```bash
-cd al-dente
+git clone -b web-app --single-branch https://github.com/Parkerallen13/al-dente.git al-dente-web
+cd al-dente-web
+```
+
+If you'd rather use a copy of the repo you already have, commit or stash your work first, then run `git fetch origin` and `git switch web-app`. Switching back with `git switch main` brings the iOS project back.
+
+To get later updates, run `git pull` in that folder.
+
+The shared prototype is also live at **https://al-dente.fly.dev**. Ask Parker for the password; it isn't in this repo.
+
+## Setup
+
+You need [Node.js](https://nodejs.org) 20.12 or newer. In the project folder:
+
+```bash
 npm install
-cp .env.example .env     # then paste your Anthropic API key into .env
+cp .env.example .env     # optional: paste an Anthropic API key into .env for the AI features
 npm start
 ```
 
-Then open **http://localhost:3000**.
+Then open **http://localhost:3000**. Your recipes and profile are saved in a `data` folder that git ignores, so pulling updates never touches them.
 
 ### The API key
 
