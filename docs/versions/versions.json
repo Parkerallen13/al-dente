@@ -1,0 +1,1007 @@
+[
+  {
+    "id": "01-wireframe",
+    "name": "Wireframe",
+    "note": "The first clickable grayscale wireframe, before any code. Every screen from wireframe/gallery.html.",
+    "shots": [
+      {
+        "file": "01-01-welcome.png",
+        "label": "01 · Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "02-02-sign-up.png",
+        "label": "02 · Sign up",
+        "size": "phone"
+      },
+      {
+        "file": "03-03-create-profile.png",
+        "label": "03 · Create profile",
+        "size": "phone"
+      },
+      {
+        "file": "04-04-dietary-needs.png",
+        "label": "04 · Dietary needs",
+        "size": "phone"
+      },
+      {
+        "file": "05-05-connect-cookbook.png",
+        "label": "05 · Connect cookbook",
+        "size": "phone"
+      },
+      {
+        "file": "06-06-empty-library.png",
+        "label": "06 · Empty library",
+        "size": "phone"
+      },
+      {
+        "file": "07-16-instagram-share-mock.png",
+        "label": "16 · Instagram share mock",
+        "size": "phone"
+      },
+      {
+        "file": "08-10-saving.png",
+        "label": "10 · Saving",
+        "size": "phone"
+      },
+      {
+        "file": "09-11-saved-confirmation.png",
+        "label": "11 · Saved confirmation",
+        "size": "phone"
+      },
+      {
+        "file": "10-13-collection-picker.png",
+        "label": "13 · Collection picker",
+        "size": "phone"
+      },
+      {
+        "file": "11-07-library.png",
+        "label": "07 · Library",
+        "size": "phone"
+      },
+      {
+        "file": "12-08-add-recipe-menu.png",
+        "label": "08 · Add recipe menu",
+        "size": "phone"
+      },
+      {
+        "file": "13-09-paste-link.png",
+        "label": "09 · Paste link",
+        "size": "phone"
+      },
+      {
+        "file": "14-12-review-when-unsure-photo-of-a-handwritten-card.png",
+        "label": "12 · Review (when unsure) (photo of a handwritten card)",
+        "size": "phone"
+      },
+      {
+        "file": "15-08b-type-it-manually.png",
+        "label": "08b · Type it manually",
+        "size": "phone"
+      },
+      {
+        "file": "16-14-recipe-detail-top.png",
+        "label": "14 · Recipe detail (top)",
+        "size": "phone"
+      },
+      {
+        "file": "17-14-recipe-detail-scrolled.png",
+        "label": "14 · Recipe detail (scrolled)",
+        "size": "phone"
+      },
+      {
+        "file": "18-14-recipe-detail-photo-voice-memo-source.png",
+        "label": "14 · Recipe detail (photo + voice memo source)",
+        "size": "phone"
+      },
+      {
+        "file": "19-15-cook-mode.png",
+        "label": "15 · Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "20-15-cook-mode-assistant-open.png",
+        "label": "15 · Cook mode (assistant open)",
+        "size": "phone"
+      },
+      {
+        "file": "21-17-cookbook-home.png",
+        "label": "17 · Cookbook home",
+        "size": "phone"
+      },
+      {
+        "file": "22-18-send-recipes.png",
+        "label": "18 · Send recipes",
+        "size": "phone"
+      },
+      {
+        "file": "23-19-e-ink-preview.png",
+        "label": "19 · E-ink preview",
+        "size": "phone"
+      },
+      {
+        "file": "24-20-sent-confirmation.png",
+        "label": "20 · Sent confirmation",
+        "size": "phone"
+      },
+      {
+        "file": "25-21-in-app-cookbook-view.png",
+        "label": "21 · In-app cookbook view",
+        "size": "phone"
+      },
+      {
+        "file": "26-22-device-home.png",
+        "label": "22 · Device home",
+        "size": "phone"
+      },
+      {
+        "file": "27-23-device-library-browse.png",
+        "label": "23 · Device library browse",
+        "size": "phone"
+      },
+      {
+        "file": "28-24-device-cook-view.png",
+        "label": "24 · Device cook view",
+        "size": "phone"
+      },
+      {
+        "file": "29-25-profile.png",
+        "label": "25 · Profile",
+        "size": "phone"
+      },
+      {
+        "file": "30-26-community-feed.png",
+        "label": "26 · Community feed",
+        "size": "phone"
+      },
+      {
+        "file": "31-27-post-and-comments.png",
+        "label": "27 · Post and comments",
+        "size": "phone"
+      },
+      {
+        "file": "32-28-new-post.png",
+        "label": "28 · New post",
+        "size": "phone"
+      },
+      {
+        "file": "33-tablet-07-library.png",
+        "label": "07 · Library (tablet)",
+        "size": "tablet"
+      },
+      {
+        "file": "34-tablet-14-recipe-detail.png",
+        "label": "14 · Recipe detail (tablet)",
+        "size": "tablet"
+      },
+      {
+        "file": "35-tablet-15-cook-mode.png",
+        "label": "15 · Cook mode (tablet)",
+        "size": "tablet"
+      }
+    ]
+  },
+  {
+    "id": "02-first-app",
+    "name": "First app",
+    "note": "The original working app (commit a27d712): import a recipe from a link, photo or text, then cook from a clean card. Warm colors, top navigation.",
+    "shots": [
+      {
+        "file": "phone-01-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-edit-recipe.png",
+        "label": "Edit recipe",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-edit-recipe.png",
+        "label": "Edit recipe",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "03-color-redesign",
+    "name": "Color redesign",
+    "note": "The app rebuilt on the wireframe layout, with every wireframe feature, in warm cream and tomato colors (commit 0c35514).",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "04-lofi-classic",
+    "name": "Lo-fi: Classic",
+    "note": "Back to black and white while the group decides on visual style. Classic is the calm, familiar layout. Steps show ingredient amounts.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "05-editorial",
+    "name": "Lo-fi: Editorial",
+    "note": "Magazine type, numbered recipe lists, thin rules, and soft page transitions.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "06-bold",
+    "name": "Lo-fi: Bold",
+    "note": "Heavy type, hard shadows, a floating tab dock, and springy animations.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "07-journal",
+    "name": "Lo-fi: Journal",
+    "note": "A lifestyle-magazine feel: fashion serifs, a mixed-size mosaic, pull quotes, and slow fades.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "08-zine",
+    "name": "Lo-fi: Zine",
+    "note": "Bold and Journal mixed: outlines, shadows and a floating dock with fashion serifs and pull quotes.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "09-mid-century",
+    "name": "Lo-fi: Mid-Century",
+    "note": "Mid-century Americana: diner signage, starbursts, ringed buttons, and ticket-stub cards.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  },
+  {
+    "id": "10-bistro",
+    "name": "Lo-fi: Bistro",
+    "note": "A boutique French café: script menus, a striped awning, a chalkboard cook mode, and little wiggles.",
+    "shots": [
+      {
+        "file": "phone-01-welcome.png",
+        "label": "Welcome",
+        "size": "phone"
+      },
+      {
+        "file": "phone-02-library.png",
+        "label": "Library",
+        "size": "phone"
+      },
+      {
+        "file": "phone-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-04-recipe.png",
+        "label": "Recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "phone"
+      },
+      {
+        "file": "phone-06-community.png",
+        "label": "Community",
+        "size": "phone"
+      },
+      {
+        "file": "phone-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "phone"
+      },
+      {
+        "file": "phone-08-profile.png",
+        "label": "Profile",
+        "size": "phone"
+      },
+      {
+        "file": "phone-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "phone"
+      },
+      {
+        "file": "desktop-01-welcome.png",
+        "label": "Welcome",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-02-library.png",
+        "label": "Library",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-03-add-a-recipe.png",
+        "label": "Add a recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-04-recipe.png",
+        "label": "Recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-05-cook-mode.png",
+        "label": "Cook mode",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-06-community.png",
+        "label": "Community",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-07-community-recipe.png",
+        "label": "Community recipe",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-08-profile.png",
+        "label": "Profile",
+        "size": "desktop"
+      },
+      {
+        "file": "desktop-09-cookbook-device.png",
+        "label": "Cookbook device",
+        "size": "desktop"
+      }
+    ]
+  }
+]

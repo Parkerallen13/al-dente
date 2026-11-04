@@ -44,12 +44,15 @@ export async function renderForm(recipe, mode) {
   app.innerHTML = `
     <form class="screen" id="recipe-form">
       <header class="topbar">
-        <a class="link" href="${mode === "edit" ? `/recipe/${recipe.id}` : "/add"}" data-link id="cancel">${labels.cancel}</a>
+        <a class="link" href="${mode === "edit" ? `/recipe/${recipe.id}` : recipe.source?.type === "generated" ? "/add/generate" : "/add"}" data-link id="cancel">${labels.cancel}</a>
         <div class="topbar-title center">${labels.title}</div>
         <button class="link strong" type="submit">Save</button>
       </header>
       <div class="pad narrow">
-        ${mode === "review" ? `<div class="banner">${unsure.length ? `We weren't sure about ${plural(unsure.length, "thing")}. Please check them below, then save.` : "Here's what we found. Check it over, fix anything that looks off, then save it."}</div>` : ""}
+        ${mode === "review" ? `<div class="banner">${
+          recipe.source?.type === "generated" ? `Here's an idea from the AI. Change anything you like, then save it. <a class="u" href="/add/generate?again=1" data-link>Try another idea</a>`
+          : unsure.length ? `We weren't sure about ${plural(unsure.length, "thing")}. Please check them below, then save.`
+          : "Here's what we found. Check it over, fix anything that looks off, then save it."}</div>` : ""}
         ${unsure.map((u) => `<div class="unsure"><span class="tag-check">Please check</span><b>${esc(u.field)}</b><span class="hint">${esc(u.note)}</span></div>`).join("")}
         ${dietaryBanner(recipe)}
         ${recipe.image ? thumbHtml(recipe, "banner") : ""}
@@ -203,6 +206,7 @@ const SOURCE_TYPES = {
   photo: ["📷", "Photo"],
   text: ["📝", "Pasted text"],
   voice: ["🎙️", "Voice memo"],
+  generated: ["✨", "AI recipe idea"],
   manual: ["✏️", "Typed in"],
   community: ["💬", "Community post"],
 };
@@ -254,20 +258,116 @@ export function wireStars(el, onChange) {
   });
 }
 
-export async function renderRecipe(recipe) {
-  let factorIndex = SERVING_FACTORS.indexOf(1);
-  const stepState = { done: new Set(), current: 0 };
-  const cookedCount = (recipe.cooked || []).length;
-
-  const pills = [["Prep", recipe.prepTime], ["Cook", recipe.cookTime], ["Total", recipe.totalTime]]
+export const timePills = (recipe) =>
+  [["Prep", recipe.prepTime], ["Cook", recipe.cookTime], ["Total", recipe.totalTime]]
     .filter(([, v]) => v)
     .map(([k, v]) => `<span class="pill"><span class="muted">${k}</span>${esc(v)}</span>`)
     .join("");
-  let n = 0;
-  const steps = recipe.stepGroups
-    .map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}
-      <ol class="steps">${g.steps.map((s) => `<li><span class="step-num">${++n}</span><p>${esc(s)}</p></li>`).join("")}</ol>`)
-    .join("");
+
+// The body of a recipe page: a servings stepper, then Steps and Ingredients. On
+// phones they're two tabs; wider screens show both side by side. Wire it up with
+// wireRecipeBody after rendering.
+export function recipeBodyHtml({ afterSteps = "" } = {}) {
+  return `<div class="row servings-row"><span class="label grow">Servings</span>
+      <div class="stepper"><button type="button" data-step="-1" aria-label="Fewer servings">−</button><span id="servings" aria-live="polite"></span><button type="button" data-step="1" aria-label="More servings">+</button></div></div>
+    <div class="seg recipe-tabs" role="tablist" aria-label="Recipe">
+      <button type="button" role="tab" data-pane="steps" class="is-active" aria-selected="true">Steps</button>
+      <button type="button" role="tab" data-pane="ingredients" aria-selected="false">Ingredients</button>
+    </div>
+    <div class="detail-cols" data-pane="steps">
+      <section class="section pane-ingredients"><h2 class="h2">Ingredients</h2><div id="ing"></div></section>
+      <section class="section pane-steps">
+        <h2 class="h2">Steps</h2>
+        <p class="hint">Amounts are shown in each step. Tap a step to mark it done.</p>
+        <div id="steps"></div>
+        ${afterSteps}
+      </section>
+    </div>`;
+}
+
+// Ticked ingredients and finished steps survive changing the servings. The chosen
+// servings carry over into cook mode.
+export function wireRecipeBody(recipe, { emptySteps = `<p class="muted">No steps yet.</p>` } = {}) {
+  let factorIndex = Math.max(0, SERVING_FACTORS.indexOf(state.factors[recipe.id] ?? 1));
+  const checked = new Set();
+  const done = new Set();
+  let current = 0;
+  const items = amountsFor(recipe);
+  const stepsEl = document.getElementById("steps");
+
+  const drawStepState = () =>
+    stepsEl.querySelectorAll("li").forEach((li, i) => {
+      li.classList.toggle("done", done.has(i));
+      li.classList.toggle("current", i === current);
+    });
+  const draw = () => {
+    const factor = SERVING_FACTORS[factorIndex];
+    if (recipe.id) state.factors[recipe.id] = factor;
+    let i = 0;
+    let n = 0;
+    document.getElementById("servings").innerHTML = `<b>${esc(scaleYield(recipe.yield, factor))}</b>`;
+    document.querySelector('[data-step="-1"]').disabled = factorIndex === 0;
+    document.querySelector('[data-step="1"]').disabled = factorIndex === SERVING_FACTORS.length - 1;
+    document.getElementById("ing").innerHTML =
+      recipe.ingredientGroups
+        .map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}<ul class="ingredients">
+          ${g.items.map((item) => {
+            const id = i++;
+            return `<li><label><input type="checkbox" data-i="${id}" ${checked.has(id) ? "checked" : ""}><span>${scaleIngredient(item, factor)}</span></label></li>`;
+          }).join("")}</ul>`)
+        .join("") || `<p class="muted">No ingredients yet.</p>`;
+    const measured = new Set();
+    stepsEl.innerHTML =
+      recipe.stepGroups
+        .map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}
+          <ol class="steps">${g.steps.map((s) => `<li><span class="step-num">${++n}</span><p>${stepHtml(s, items, factor, esc, measured)}</p></li>`).join("")}</ol>`)
+        .join("") || emptySteps;
+    drawStepState();
+  };
+  draw();
+
+  document.getElementById("ing").addEventListener("change", (e) => {
+    const id = Number(e.target.dataset.i);
+    e.target.checked ? checked.add(id) : checked.delete(id);
+  });
+  app.querySelector(".stepper").addEventListener("click", (e) => {
+    const step = Number(e.target.closest("[data-step]")?.dataset.step);
+    if (!step) return;
+    factorIndex = Math.min(SERVING_FACTORS.length - 1, Math.max(0, factorIndex + step));
+    draw();
+  });
+  // Tap a step to mark it done; the next unfinished step gets highlighted.
+  stepsEl.addEventListener("click", (e) => {
+    const li = e.target.closest(".steps li");
+    if (!li) return;
+    const all = [...stepsEl.querySelectorAll("li")];
+    const i = all.indexOf(li);
+    if (done.has(i)) {
+      done.delete(i);
+      current = i;
+    } else {
+      done.add(i);
+      current = all.findIndex((_, j) => j > i && !done.has(j));
+      if (current >= 0) all[current].scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    drawStepState();
+  });
+  app.querySelector(".recipe-tabs").addEventListener("click", (e) => {
+    const tab = e.target.closest("[data-pane]");
+    if (!tab) return;
+    app.querySelector(".detail-cols").dataset.pane = tab.dataset.pane;
+    app.querySelectorAll(".recipe-tabs [data-pane]").forEach((t) => {
+      t.classList.toggle("is-active", t === tab);
+      t.setAttribute("aria-selected", t === tab);
+    });
+  });
+}
+
+export async function renderRecipe(recipe) {
+  const cookedCount = (recipe.cooked || []).length;
+  const pills = timePills(recipe);
+  const sourceNotes = recipe.notes?.length ? `<div class="notes"><h3 class="h3">Notes from the recipe</h3><ul>${recipe.notes.map((note) => `<li>${esc(note)}</li>`).join("")}</ul></div>` : "";
+  const tags = recipe.tags?.length ? `<div class="tags">${recipe.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : "";
 
   app.innerHTML = `
     <article class="screen">
@@ -290,21 +390,7 @@ export async function renderRecipe(recipe) {
         ${dietaryBanner(recipe)}
         ${sourceBox(recipe)}
         <button class="list-row collection-row" type="button" id="collection"><span class="label grow">Collection</span><span class="strong" id="collection-name">${esc(recipe.category || "None")}</span><span class="chev" aria-hidden="true">›</span></button>
-        <div class="detail-cols">
-          <section class="section">
-            <h2 class="h2">Ingredients</h2>
-            <div class="row"><span class="label grow">Servings</span>
-              <div class="stepper"><button type="button" data-step="-1" aria-label="Fewer servings">−</button><span id="servings" aria-live="polite"></span><button type="button" data-step="1" aria-label="More servings">+</button></div></div>
-            <div id="ing"></div>
-          </section>
-          <section class="section">
-            <h2 class="h2">Steps</h2>
-            <p class="hint">Tap a step to mark it done.</p>
-            ${steps || `<p class="muted">No steps yet. <a class="u" href="/recipe/${recipe.id}/edit" data-link>Add some</a>.</p>`}
-            ${recipe.notes?.length ? `<div class="notes"><h3 class="h3">Notes from the recipe</h3><ul>${recipe.notes.map((note) => `<li>${esc(note)}</li>`).join("")}</ul></div>` : ""}
-            ${recipe.tags?.length ? `<div class="tags">${recipe.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
-          </section>
-        </div>
+        ${recipeBodyHtml({ afterSteps: sourceNotes + tags })}
         <section class="section">
           <h2 class="h3">Your rating</h2>
           <div class="row row-wrap">${starInput(recipe.rating)}<span class="spacer"></span>
@@ -327,55 +413,7 @@ export async function renderRecipe(recipe) {
       </div>
     </article>`;
 
-  const checked = new Set();
-  const drawIngredients = () => {
-    const factor = SERVING_FACTORS[factorIndex];
-    let i = 0;
-    document.getElementById("servings").innerHTML = `<b>${esc(scaleYield(recipe.yield, factor))}</b>`;
-    document.querySelector('[data-step="-1"]').disabled = factorIndex === 0;
-    document.querySelector('[data-step="1"]').disabled = factorIndex === SERVING_FACTORS.length - 1;
-    document.getElementById("ing").innerHTML =
-      recipe.ingredientGroups
-        .map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}<ul class="ingredients">
-          ${g.items.map((item) => {
-            const id = i++;
-            return `<li><label><input type="checkbox" data-i="${id}" ${checked.has(id) ? "checked" : ""}><span>${scaleIngredient(item, factor)}</span></label></li>`;
-          }).join("")}</ul>`)
-        .join("") || `<p class="muted">No ingredients yet.</p>`;
-  };
-  drawIngredients();
-  document.getElementById("ing").addEventListener("change", (e) => {
-    const i = Number(e.target.dataset.i);
-    e.target.checked ? checked.add(i) : checked.delete(i);
-  });
-  app.querySelector(".stepper").addEventListener("click", (e) => {
-    const step = Number(e.target.closest("[data-step]")?.dataset.step);
-    if (!step) return;
-    factorIndex = Math.min(SERVING_FACTORS.length - 1, Math.max(0, factorIndex + step));
-    drawIngredients();
-  });
-
-  const stepEls = [...app.querySelectorAll(".steps li")];
-  const drawSteps = () =>
-    stepEls.forEach((li, i) => {
-      li.classList.toggle("done", stepState.done.has(i));
-      li.classList.toggle("current", i === stepState.current);
-    });
-  stepEls.forEach((li, i) =>
-    li.addEventListener("click", () => {
-      if (stepState.done.has(i)) {
-        stepState.done.delete(i);
-        stepState.current = i;
-      } else {
-        stepState.done.add(i);
-        const next = stepEls.findIndex((_, j) => j > i && !stepState.done.has(j));
-        stepState.current = next;
-        if (next >= 0) stepEls[next].scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-      drawSteps();
-    }),
-  );
-  drawSteps();
+  wireRecipeBody(recipe, { emptySteps: `<p class="muted">No steps yet. <a class="u" href="/recipe/${recipe.id}/edit" data-link>Add some</a>.</p>` });
 
   const patch = async (changes) => {
     recipe = await api(`/api/recipes/${recipe.id}`, { method: "PATCH", body: changes });
@@ -517,9 +555,105 @@ export function scaleIngredient(item, factor) {
   if (!m) return esc(item);
   const rest = item.slice(m[0].length);
   let qty = m[0];
-  if (factor !== 1) {
-    qty = formatNumber(toNumber(m[1]) * factor);
-    if (m[3]) qty += `–${formatNumber(toNumber(m[3]) * factor)}`;
+  if (factor === 1) return `<span class="qty">${esc(qty)}</span>${esc(rest)}`;
+  qty = formatNumber(toNumber(m[1]) * factor);
+  if (m[3]) qty += `–${formatNumber(toNumber(m[3]) * factor)}`;
+  return `<span class="qty">${esc(qty)}</span>${esc(pluralUnit(rest, toNumber(m[3] || m[1]) * factor))}`;
+}
+
+// ---------------------------------------------------------------------------
+// Amounts in steps. The step where an ingredient is first used shows how much
+// ("Add the rice (2 cups)"), scaled with the servings, so you don't have to flip
+// back to the ingredient list. Steps that already give an amount get it scaled in
+// place. Later mentions ("the ricotta mixture") are left alone.
+
+const UNITS = String.raw`cups?|tablespoons?|tbsps?|tbs|teaspoons?|tsps?|ounces?|oz|fl oz|pounds?|lbs?|grams?|g|kilograms?|kg|milliliters?|millilitres?|ml|liters?|litres?|l|pinch(?:es)?|dash(?:es)?|cloves?|cans?|jars?|packages?|sticks?|slices?|sprigs?|bunch(?:es)?|handfuls?|heads?|stalks?|quarts?|pints?`;
+const SIZES = "large|medium|small|heaping|level|scant";
+const AMOUNT_RE = new RegExp(String.raw`^${NUM}(?:\s*(?:-|–|to)\s*${NUM})?\s*(?:\([^)]*\)\s*)?(?:(?:${SIZES})\s+)?(?:(?:${UNITS})\.?\s+)?(?:of\s+)?`, "i");
+// A quantity sitting right before an ingredient's name in a step: "Rinse 1 cup basmati rice".
+const STATED_RE = new RegExp(String.raw`(${NUM}(?:\s*(?:-|–|to)\s*${NUM})?)(\s*(?:(?:${UNITS})\.?)?\s+(?:(?:${SIZES})\s+)?(?:of\s+)?(?:the\s+)?)$`, "i");
+// Words that describe an ingredient rather than name it.
+const NOT_NAMES = new Set("very ripe fresh chopped large small medium whole ground dried sliced minced cooked grated softened melted toasted shredded diced peeled kosher sea extra virgin light dark unsalted salted boneless skinless day old about each plus more taste finely roughly thinly freshly cold warm hot room temperature cut pieces divided optional packed red green yellow white black".split(" "));
+// Names too generic to match on their own ("simmer the sauce" isn't the soy sauce).
+const GENERIC = new Set("sauce powder juice paste stock broth leaf seed flake mix extract zest water".split(" "));
+// Words that count pieces rather than name the food: "garlic cloves" is matched on "garlic".
+const PIECES = new Set("clove leaf leave sprig stalk head bunch piece fillet slice link strip".split(" "));
+
+const stem = (word) => word.toLowerCase().replace(/[^a-zà-ɏ-]/g, "").replace(/(?:es|s)$/, "");
+
+// The ingredients that have an amount, with the words a step might call them by.
+export function amountsFor(recipe) {
+  const items = recipe.ingredientGroups
+    .flatMap((g) => g.items)
+    .map((line) => {
+      const m = line.match(AMOUNT_RE);
+      if (!m || !m[0].trim()) return null;
+      const name = line.slice(m[0].length).split(/[,(]/)[0].trim();
+      const words = name.split(/\s+/).map(stem).filter((w) => w.length > 2 && !NOT_NAMES.has(w));
+      if (!words.length) return null;
+      // The main noun: "rice vinegar" is vinegar, "salmon fillets" is salmon.
+      let head = words.at(-1);
+      if (PIECES.has(head) && words.length > 1) head = words.at(-2);
+      return { amount: line.slice(0, m[0].length).trim().replace(/\s+of$/i, ""), words, head };
+    })
+    .filter(Boolean);
+  const counts = new Map();
+  for (const item of items) counts.set(item.head, (counts.get(item.head) || 0) + 1);
+  // On its own, only the main noun is trusted, and only if no other ingredient shares it.
+  for (const item of items) item.keys = counts.get(item.head) === 1 && !GENERIC.has(item.head) ? [item.head] : [];
+  return items;
+}
+
+// One step as HTML, with amounts added or scaled. format() turns plain text into
+// HTML: esc by default, or cook mode's highlighter. Pass the same measured set for
+// every step of a recipe, in order, so each ingredient's amount shows only once.
+export function stepHtml(step, items, factor = 1, format = esc, measured = new Set()) {
+  const tokens = [...step.matchAll(/[A-Za-zÀ-ɏ'-]+/g)].map((m) => ({ start: m.index, end: m.index + m[0].length, stem: stem(m[0]) }));
+  const used = new Set();
+  const marks = [];
+  for (const item of items) {
+    if (measured.has(item)) continue;
+    // The full name first ("basmati rice"), then its main noun ("rice").
+    let first = -1;
+    const k = item.words.length;
+    for (let i = 0; k > 1 && i + k <= tokens.length && first < 0; i++) {
+      if (item.words.every((w, j) => tokens[i + j].stem === w && !used.has(i + j))) first = i;
+    }
+    if (first < 0) first = tokens.findIndex((t, i) => !used.has(i) && item.keys.includes(t.stem));
+    if (first < 0) continue;
+    // Take in describing words just before the name ("3 tbsp white miso", "2 sliced
+    // scallions") so an amount stated ahead of them is found.
+    const joined = (a, b) => /^\s+$/.test(step.slice(tokens[a].end, tokens[b].start));
+    const describes = (i) => !used.has(i) && (NOT_NAMES.has(tokens[i].stem) || item.words.includes(tokens[i].stem));
+    while (first > 0 && describes(first - 1) && joined(first - 1, first)) first--;
+    let last = first;
+    while (tokens[last + 1] && !used.has(last + 1) && item.words.includes(tokens[last + 1].stem) && joined(last, last + 1)) last++;
+    for (let i = first; i <= last; i++) used.add(i);
+    measured.add(item);
+    const stated = step.slice(0, tokens[first].start).match(STATED_RE);
+    if (stated) marks.push({ at: tokens[first].start - stated[0].length, cut: stated[1].length, text: scaleAmount(stated[1], factor) });
+    else marks.push({ at: tokens[last].end, cut: 0, text: `(${scaleAmount(item.amount, factor)})`, space: true });
   }
-  return `<span class="qty">${esc(qty)}</span>${esc(rest)}`;
+  marks.sort((a, b) => a.at - b.at);
+  let html = "";
+  let pos = 0;
+  for (const m of marks) {
+    html += format(step.slice(pos, m.at)) + (m.space ? " " : "") + `<span class="amt">${esc(m.text)}</span>`;
+    pos = m.at + m.cut;
+  }
+  return html + format(step.slice(pos));
+}
+
+function scaleAmount(text, factor) {
+  const m = text.match(QTY_RE);
+  if (factor === 1 || !m) return text;
+  let qty = formatNumber(toNumber(m[1]) * factor);
+  if (m[3]) qty += `–${formatNumber(toNumber(m[3]) * factor)}`;
+  return qty + pluralUnit(text.slice(m[0].length), toNumber(m[3] || m[1]) * factor);
+}
+
+const SINGULAR_UNIT = /^(\s*)(cup|tablespoon|teaspoon|pound|ounce|clove|can|stick|slice|sprig|pinch|dash|bunch|jar|package|head|stalk|quart|pint|liter|litre|gram)\b(?!s)/i;
+
+function pluralUnit(rest, amount) {
+  return amount > 1 ? rest.replace(SINGULAR_UNIT, (_, space, unit) => `${space}${unit}${/(ch|sh)$/i.test(unit) ? "es" : "s"}`) : rest;
 }

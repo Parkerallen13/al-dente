@@ -12,6 +12,7 @@ Turn a recipe from anywhere into a clean, easy-to-follow card, then keep it in y
 | Emails, texts, notes | **Paste text** |
 | Your own recipe | **Type it manually** |
 | A recipe you know by heart | **Record a voice memo**: talk it through and the browser transcribes it (Chrome, Edge or Safari) |
+| No recipe yet | **Generate** (on the Recipes screen): pick a cuisine, dietary needs, time and ingredients to use up, or tap **Surprise me**, and the AI writes an original recipe |
 
 Imported recipes open on a review screen so you can fix anything and pick a collection before saving. When the AI couldn't read or hear something clearly, like a smudged amount, it's listed there under **Please check**.
 
@@ -20,15 +21,17 @@ On Android, install Al Dente from Chrome's menu (**Install app**) and it appears
 **What you get**
 
 - **First-run setup**: your name, photo and dietary needs. There's no account, and it all stays on this computer
-- Ingredients you can check off, with a servings stepper from ½× to 4×
+- Steps that show the amount of each ingredient where it's first used ("Boil the rigatoni (8 oz)"), so you don't flip back to the list. On phones, **Steps** and **Ingredients** are two tabs; wider screens show both side by side
+- Ingredients you can check off, with a servings stepper from ½× to 4× that scales the amounts in the steps too
 - Numbered steps you tap to mark done, with the next step highlighted
 - **Dietary flags**: recipes that may not fit your needs (dairy, nuts, gluten, meat, or anything you list) are marked on cards and recipe pages. The check is based on ingredient names, so it can miss things
 - Ratings, **I made this**, private notes on each recipe, and a cooking history on your profile
 - **Cook mode**: three large steps per page, one-tap timers for any time a step mentions, the screen kept awake, and an assistant you can type or speak questions to
 - **Cookbook**: a simulator of the Al Dente e-ink kitchen device. Pair it, send recipes, and use its four buttons (or the arrow keys, Enter and Esc). **Book view** reads any recipe as book pages
-- **Community**: join communities, share a recipe from your library with a caption, like and comment on posts, and save recipes from posts into your library
+- **Community**: join communities, share a recipe from your library with a caption, like and comment on posts, and save recipes from posts into your library. The sample posts come from parody celebrity chefs like Gordon Hamsay and Mary Berry-Good
 - Collections you can create, rename and delete, plus favorites and search
 - Light, dark, or match-your-device appearance (**Profile → Settings**)
+- Four layouts to choose from in the **Layout** (☰) menu in the tab bar: Classic, Editorial, Mid-Century and Bistro. They all work the same and are black and white for now; they differ in type, shapes and motion. Bold, Journal and Zine are still styled in `public/styles.css`; add them to `LAYOUTS_OFFERED` in `public/js/core.js` to offer them again
 - Editing and printing
 
 ## Setup
@@ -48,7 +51,7 @@ Then open **http://localhost:3000**.
 
 Most recipe websites include structured recipe data, so Al Dente reads them directly. Those links work without a key and cost nothing.
 
-Photos, PDFs, pasted text, voice memos, social posts and websites without that data are read by Claude (`claude-opus-5-5`), and so are questions to the cook-mode assistant. For those, get an API key at [console.anthropic.com](https://console.anthropic.com/), put it in `.env` as `ANTHROPIC_API_KEY=...`, and restart.
+Photos, PDFs, pasted text, voice memos, social posts and websites without that data are read by Claude (`claude-opus-5-5`). Claude also writes generated recipes and answers questions to the cook-mode assistant. For those, get an API key at [console.anthropic.com](https://console.anthropic.com/), put it in `.env` as `ANTHROPIC_API_KEY=...`, and restart.
 
 ## Where your recipes are stored
 
@@ -71,6 +74,7 @@ public/app.js        Routes: which screen renders for each URL
 public/js/           Screens, one file per area (library, recipe, cook, cookbook, community, profile) plus core.js
 public/              Also the page, styles, install manifest and icons (plain HTML, CSS and JS, no build step)
 wireframe/           Clickable grayscale wireframe (index.html) and a gallery of every screen
+docs/versions/       Screenshots of every version so far, with a gallery page (index.html) and Figma notes
 ```
 
 Colors, fonts and corner radii are tokens at the top of `public/styles.css`, so a new visual style only changes those values.

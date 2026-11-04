@@ -1,0 +1,8 @@
+# Keep secrets, local data and dev-only folders out of the production image.
+.env
+data/
+node_modules/
+wireframe/
+docs/
+.git/
+.DS_Store

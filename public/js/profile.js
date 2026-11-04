@@ -11,8 +11,10 @@ const progress = (step, back) => `<header class="topbar">
   <div class="progress" aria-hidden="true">${[1, 2, 3].map((n) => `<span class="${n <= step ? "on" : ""}"></span>`).join("")}</div>
   <span class="small muted">${step} of 3</span></header>`;
 
+const NO_PHOTO = `<span class="small">Photo</span>`;
+
 const photoHtml = (photo, size = "lg") =>
-  `<span class="avatar avatar-${size} is-you" id="photo-preview" aria-hidden="true">${photo ? `<img src="${esc(photo)}" alt="">` : "📷"}</span>`;
+  `<span class="avatar avatar-${size} is-you" id="photo-preview" aria-hidden="true">${photo ? `<img src="${esc(photo)}" alt="">` : NO_PHOTO}</span>`;
 
 // A photo picker that shows a preview and calls set(dataUrl or null).
 function wirePhoto(set) {
@@ -31,7 +33,7 @@ function wirePhoto(set) {
   });
   document.getElementById("photo-remove").addEventListener("click", () => {
     set(null);
-    document.getElementById("photo-preview").textContent = "📷";
+    document.getElementById("photo-preview").innerHTML = NO_PHOTO;
     document.getElementById("photo-remove").hidden = true;
   });
 }

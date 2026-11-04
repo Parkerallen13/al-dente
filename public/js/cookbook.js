@@ -2,7 +2,7 @@
 // yet, so this is a simulator: pair it, send recipes to it, and use its own screens
 // with its four buttons. Book view reads any recipe as pages, no device needed.
 import { app, state, refreshLibrary, saveProfile, navigate, onLeave, esc, toast, plural, shortDate, openSheet, confirmDialog, thumbHtml } from "./core.js";
-import { scaleIngredient, sourceName } from "./recipe.js";
+import { scaleIngredient, sourceName, amountsFor, stepHtml } from "./recipe.js";
 import { highlight } from "./cook.js";
 
 const cookbook = () => state.profile.cookbook;
@@ -66,7 +66,9 @@ function einkList(head, right, title, rows, index, foot) {
 // A recipe split into device pages: ingredients first, then three steps a page.
 function einkPages(recipe) {
   const items = recipe.ingredientGroups.flatMap((g) => [...(g.name ? [{ head: g.name }] : []), ...g.items.map((text) => ({ text }))]);
-  const steps = recipe.stepGroups.flatMap((g) => g.steps);
+  const amounts = amountsFor(recipe);
+  const measured = new Set();
+  const steps = recipe.stepGroups.flatMap((g) => g.steps).map((s) => stepHtml(s, amounts, 1, highlight, measured));
   const pages = [{ kind: "ingredients", items: items.slice(0, 8), first: true }];
   for (let i = 8; i < items.length; i += 12) pages.push({ kind: "ingredients", items: items.slice(i, i + 12) });
   for (let i = 0; i < steps.length; i += 3) pages.push({ kind: "steps", start: i, steps: steps.slice(i, i + 3) });
@@ -79,7 +81,7 @@ function einkPage(recipe, pages, p) {
   const items = (list) => `<ul class="eink-ing">${list.map((i) => (i.head ? `<li class="eink-section">${esc(i.head.toUpperCase())}</li>` : `<li>${scaleIngredient(i.text, 1)}</li>`)).join("")}</ul>`;
   const body =
     page.kind === "steps"
-      ? `<div class="eink-steps">${page.steps.map((s, i) => `<div class="eink-step"><span class="eink-num">${page.start + i + 1}</span><p>${highlight(s)}</p></div>`).join("")}</div>`
+      ? `<div class="eink-steps">${page.steps.map((s, i) => `<div class="eink-step"><span class="eink-num">${page.start + i + 1}</span><p>${s}</p></div>`).join("")}</div>`
       : page.first
         ? `<div class="eink-title">${esc(recipe.title)}</div>
            <div>${esc([recipe.yield && `Serves ${recipe.yield.replace(/^serves\s*/i, "")}`, recipe.totalTime].filter(Boolean).join(" · "))}</div>
@@ -336,7 +338,9 @@ export function renderSent() {
 function bookPages(recipe) {
   const short = recipe.title.length > 28 ? `${recipe.title.slice(0, 27)}…` : recipe.title;
   const items = recipe.ingredientGroups.flatMap((g) => [...(g.name ? [`<li class="page-sub">${esc(g.name)}</li>`] : []), ...g.items.map((i) => `<li>${scaleIngredient(i, 1)}</li>`)]);
-  const steps = recipe.stepGroups.flatMap((g) => g.steps);
+  const amounts = amountsFor(recipe);
+  const measured = new Set();
+  const steps = recipe.stepGroups.flatMap((g) => g.steps).map((s) => stepHtml(s, amounts, 1, esc, measured));
   const meta = [recipe.yield, recipe.totalTime, sourceName(recipe) && `From ${sourceName(recipe)}`].filter(Boolean).join(" · ");
   const pages = [`<div class="page-head"><span>Al Dente cookbook</span><span>${esc(recipe.category || "")}</span></div>
     <h2 class="h1">${esc(recipe.title)}</h2>${meta ? `<p class="small muted">${esc(meta)}</p>` : ""}
@@ -346,7 +350,7 @@ function bookPages(recipe) {
   }
   for (let i = 0; i < steps.length; i += 6) {
     pages.push(`<div class="page-head"><span>${esc(short)}</span><span>Steps</span></div>
-      <ol class="page-steps">${steps.slice(i, i + 6).map((s, j) => `<li><b>${i + j + 1}.</b> ${esc(s)}</li>`).join("")}</ol>`);
+      <ol class="page-steps">${steps.slice(i, i + 6).map((s, j) => `<li><b>${i + j + 1}.</b> ${s}</li>`).join("")}</ol>`);
   }
   if (recipe.notes?.length) {
     pages.push(`<div class="page-head"><span>${esc(short)}</span><span>Notes</span></div><ul class="page-list">${recipe.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>`);

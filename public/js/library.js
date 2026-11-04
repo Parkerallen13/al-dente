@@ -1,7 +1,7 @@
 // Library, the Add sheet, and importing from a link, photo, pasted text, or voice memo.
 import {
   app, state, api, refreshLibrary, loadStatus, navigate, onLeave, esc, toast, openSheet, promptDialog, confirmDialog,
-  thumbHtml, dietaryFlags, downscaleImage, savePreview, SpeechRecognition,
+  thumbHtml, dietaryFlags, downscaleImage, savePreview, SpeechRecognition, DIETS,
 } from "./core.js";
 
 export async function renderLibrary({ sheet = false } = {}) {
@@ -21,6 +21,7 @@ export async function renderLibrary({ sheet = false } = {}) {
     <section class="screen">
       <header class="topbar">
         <h1 class="page-title grow">Library</h1>
+        <a class="btn btn-sm" href="/add/generate" data-link>Generate</a>
         <a class="btn btn-sm btn-primary wide-only" href="/add" data-link>+ Add recipe</a>
       </header>
       ${recipes.length ? `
@@ -37,6 +38,7 @@ export async function renderLibrary({ sheet = false } = {}) {
           <h2 class="h2">Add your first recipe</h2>
           <p class="muted">Paste a link, snap a photo of a recipe card, record a voice memo, or type it in. Al Dente tidies it up.</p>
           <a class="btn btn-primary" href="/add" data-link>+ Add recipe</a>
+          <a class="btn" href="/add/generate" data-link>Generate a recipe</a>
           <p class="small muted">You can also share a post to Al Dente from Instagram or another app. <button class="u" type="button" data-share-help>See how</button></p>
         </div>`}
       ${sheet ? addSheet() : ""}
@@ -111,6 +113,7 @@ function addSheet() {
     ["/add/voice", "🎙️", "Record a voice memo", "Talk through a recipe out loud"],
     ["/add/text", "📝", "Paste text", "Emails, notes, captions"],
     ["/add/manual", "✏️", "Type it manually", "Start from a blank recipe"],
+    ["/add/generate", "✨", "Generate a recipe", "Pick a cuisine and diet, and AI dreams one up"],
   ];
   return `<div class="overlay">
     <a class="scrim" href="/" data-link aria-label="Close"></a>
@@ -147,10 +150,17 @@ export function renderShare() {
 // ---------------------------------------------------------------------------
 // Import screens, then the Saving screen
 
-const IMPORT_TITLES = { link: "Paste a link", photo: "Photo or PDF", text: "Paste text", voice: "Record a voice memo" };
+const IMPORT_TITLES = { link: "Paste a link", photo: "Photo or PDF", text: "Paste text", voice: "Record a voice memo", generate: "Generate a recipe" };
+const CUISINES = ["Italian", "Mexican", "Japanese", "Chinese", "Indian", "Thai", "Korean", "Vietnamese", "French", "Mediterranean", "Middle Eastern", "American", "Southern", "Caribbean"];
+const TIMES = [["", "Any time"], ["20 minutes or less", "20 min"], ["about 30 minutes", "30 min"], ["about an hour", "1 hr"], ["a slow weekend project", "Weekend"]];
 
 export async function renderImport(kind, values = Object.fromEntries(new URLSearchParams(location.search))) {
   await loadStatus();
+  // "Try another idea" on the review screen comes back here and reruns the last request.
+  if (kind === "generate" && values.again && state.lastGenerate && state.ai) return runExtract(kind, { generate: generateBody(state.lastGenerate) });
+  const gen = kind === "generate" ? { cuisine: "", diets: state.profile.dietary, avoid: state.profile.dietaryOther, time: "", ingredients: "", ...state.lastGenerate, ...(values.cuisine !== undefined ? values : {}) } : {};
+  const chips = (name, options, current) =>
+    options.map(([value, label]) => `<label class="chip"><input type="radio" name="${name}" value="${esc(value)}" ${value === current ? "checked" : ""}>${esc(label)}</label>`).join("");
   const fields = {
     link: `<label class="field"><span class="label">Recipe link</span>
         <input class="input" name="url" type="url" required placeholder="https://" value="${esc(values.url)}" autofocus></label>
@@ -174,8 +184,17 @@ export async function renderImport(kind, values = Object.fromEntries(new URLSear
       </div>
       <label class="field"><span class="label">Transcript</span>
         <textarea class="input" name="voice" rows="9" required placeholder="Your words show up here as you talk. Fix anything before formatting.">${esc(values.voice)}</textarea></label>`,
+    generate: `<p class="muted">Tell the AI what you're in the mood for, and it writes an original recipe for you to review and save.</p>
+      <div class="field"><span class="label">Cuisine</span><div class="row row-wrap">${chips("cuisine", [["", "Surprise me"], ...CUISINES.map((c) => [c, c])], gen.cuisine)}</div></div>
+      <div class="field"><span class="label">Dietary needs</span><div class="row row-wrap">
+        ${Object.entries(DIETS).map(([id, d]) => `<label class="chip"><input type="checkbox" name="diets" value="${id}" ${gen.diets.includes(id) ? "checked" : ""}>${d.label}</label>`).join("")}
+      </div></div>
+      <label class="field"><span class="label">Leave out</span><input class="input" name="avoid" value="${esc(gen.avoid)}" placeholder="e.g. cilantro, shellfish"></label>
+      <div class="field"><span class="label">Time</span><div class="row row-wrap">${chips("time", TIMES, gen.time)}</div></div>
+      <label class="field"><span class="label">Use up (optional)</span><input class="input" name="ingredients" value="${esc(gen.ingredients)}" placeholder="e.g. spinach, leftover rice, a can of chickpeas"></label>
+      <button class="btn self-start" type="button" id="surprise">Surprise me: random cuisine, any time</button>`,
   };
-  const needsAi = kind === "link" ? "only links to recipe websites will work. Social posts need AI." : "this option won't work.";
+  const needsAi = kind === "link" ? "only links to recipe websites will work. Social posts need AI." : kind === "generate" ? "generating recipes won't work." : "this option won't work.";
 
   app.innerHTML = `
     <section class="screen">
@@ -184,7 +203,7 @@ export async function renderImport(kind, values = Object.fromEntries(new URLSear
         ${fields[kind]}
         ${state.ai ? "" : `<div class="banner">AI isn't set up yet, so ${needsAi} Add <code>ANTHROPIC_API_KEY</code> to the <code>.env</code> file and restart the server.</div>`}
         <span class="spacer"></span>
-        <button class="btn btn-primary" type="submit" id="go">Format recipe</button>
+        <button class="btn btn-primary" type="submit" id="go">${kind === "generate" ? "Generate recipe" : "Format recipe"}</button>
       </form>
     </section>`;
 
@@ -196,6 +215,17 @@ export async function renderImport(kind, values = Object.fromEntries(new URLSear
     if (kind === "text") runExtract(kind, { text: f.text });
     if (kind === "voice") runExtract(kind, { voice: f.voice });
     if (kind === "photo") runExtract(kind, { files: state.pendingFiles, note: f.note });
+    if (kind === "generate") {
+      const fd = new FormData(form);
+      state.lastGenerate = { cuisine: fd.get("cuisine") ?? "", diets: fd.getAll("diets"), avoid: f.avoid.trim(), time: fd.get("time") ?? "", ingredients: f.ingredients.trim() };
+      runExtract(kind, { generate: generateBody(state.lastGenerate) });
+    }
+  });
+  document.getElementById("surprise")?.addEventListener("click", () => {
+    const pick = CUISINES[Math.floor(Math.random() * CUISINES.length)];
+    form.querySelector(`input[name="cuisine"][value="${pick}"]`).checked = true;
+    form.querySelector('input[name="time"][value=""]').checked = true;
+    form.requestSubmit();
   });
 
   document.getElementById("paste")?.addEventListener("click", async () => {
@@ -336,28 +366,34 @@ function wireRecorder(textarea) {
 }
 
 const LOADING_LINES = ["Reading the recipe…", "Skipping the life story…", "Measuring ingredients…", "Numbering the steps…", "Almost al dente…"];
+const GENERATING_LINES = ["Raiding the pantry…", "Asking the chef…", "Balancing the flavors…", "Writing it all down…", "Almost al dente…"];
+
+// The last few generated titles go along so "Try another idea" gets something new.
+const generateBody = (options) => ({ ...options, exclude: state.generatedTitles });
 
 async function runExtract(kind, body) {
   const controller = new AbortController();
   const at = location.pathname;
   onLeave(() => controller.abort());
   let i = 0;
+  const lines = kind === "generate" ? GENERATING_LINES : LOADING_LINES;
   app.innerHTML = `
     <section class="screen"><div class="center-stack">
       <div class="spinner" role="img" aria-label="Loading"></div>
-      <div class="stack-sm"><h1 class="h2" id="loading-line">${LOADING_LINES[0]}</h1><p class="muted">Finding the ingredients and steps.</p></div>
+      <div class="stack-sm"><h1 class="h2" id="loading-line">${lines[0]}</h1><p class="muted">${kind === "generate" ? "Writing an original recipe." : "Finding the ingredients and steps."}</p></div>
       <div class="skel-card" aria-hidden="true"><div class="skel skel-img"></div><div class="skel w-80"></div><div class="skel w-60"></div><div class="skel"></div></div>
       <button class="btn btn-text" type="button" id="cancel">Cancel</button>
     </div></section>`;
   document.getElementById("cancel").addEventListener("click", () => controller.abort());
   const timer = setInterval(() => {
     const el = document.getElementById("loading-line");
-    if (el) el.textContent = LOADING_LINES[++i % LOADING_LINES.length];
+    if (el) el.textContent = lines[++i % lines.length];
   }, 2200);
 
   try {
     const recipe = await api("/api/extract", { method: "POST", body, signal: controller.signal });
     state.pendingFiles = [];
+    if (kind === "generate") state.generatedTitles = [...state.generatedTitles, recipe.title].slice(-5);
     savePreview(recipe);
     onLeave(null);
     navigate("/preview");
@@ -365,7 +401,7 @@ async function runExtract(kind, body) {
     // Leaving the screen cancels the import; nothing to show.
     if (location.pathname !== at) return;
     onLeave(null);
-    await renderImport(kind, body);
+    await renderImport(kind, kind === "generate" ? body.generate : body);
     if (err.name !== "AbortError") toast(err.message, 6000);
   } finally {
     clearInterval(timer);

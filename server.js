@@ -1,4 +1,5 @@
 import express from "express";
+import crypto from "node:crypto";
 import path from "node:path";
 import {
   ExtractError,
@@ -7,6 +8,7 @@ import {
   extractFromText,
   extractFromUrl,
   extractFromVoice,
+  generateRecipe,
 } from "./lib/extract.js";
 import { askAssistant } from "./lib/assistant.js";
 import * as store from "./lib/storage.js";
@@ -22,6 +24,19 @@ try {
 const PORT = Number(process.env.PORT) || 3000;
 const app = express();
 
+// With APP_PASSWORD set (production always sets it), every request needs the
+// password. The browser shows its own sign-in box; the username can be anything.
+const PASSWORD = process.env.APP_PASSWORD;
+if (PASSWORD) {
+  const digest = (s) => crypto.createHash("sha256").update(s).digest();
+  app.use((req, res, next) => {
+    const [scheme, encoded] = (req.headers.authorization ?? "").split(" ");
+    const given = scheme === "Basic" && encoded ? Buffer.from(encoded, "base64").toString().split(":").slice(1).join(":") : "";
+    if (crypto.timingSafeEqual(digest(given), digest(PASSWORD))) return next();
+    res.set("WWW-Authenticate", 'Basic realm="Al Dente", charset="UTF-8"').status(401).send("Al Dente needs its password.");
+  });
+}
+
 // Photos arrive base64-encoded inside JSON, so allow generous bodies.
 app.use(express.json({ limit: "40mb" }));
 app.use(express.static(path.resolve("public")));
@@ -32,9 +47,10 @@ app.get("/api/status", (_req, res) => {
 
 app.post("/api/extract", async (req, res, next) => {
   try {
-    const { url, text, voice, files, note } = req.body ?? {};
+    const { url, text, voice, files, note, generate } = req.body ?? {};
     let recipe;
-    if (url) recipe = await extractFromUrl(url);
+    if (generate) recipe = await generateRecipe(generate);
+    else if (url) recipe = await extractFromUrl(url);
     else if (files?.length) recipe = await extractFromFiles(files, note);
     else if (voice) recipe = await extractFromVoice(voice);
     else if (text) recipe = await extractFromText(text);

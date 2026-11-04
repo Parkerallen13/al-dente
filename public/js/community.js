@@ -1,10 +1,14 @@
 // Community: the feed, a post with comments, writing a post, and finding communities.
 import {
   app, state, api, refreshLibrary, loadCommunities, communityNames, saveProfile, navigate, esc, toast, plural, ago,
-  openSheet, confirmDialog, thumbHtml, avatar, stars, dietaryFlags,
+  openSheet, confirmDialog, thumbHtml, avatar, stars, dietaryFlags, dietaryBanner,
 } from "./core.js";
+import { timePills, recipeBodyHtml, wireRecipeBody } from "./recipe.js";
 
 const joined = () => state.profile.joined;
+
+// People have no accounts, so a name is their address. Yours goes to the Profile tab.
+const authorHref = (author) => (author.you ? "/profile" : `/community/person/${encodeURIComponent(author.name)}`);
 
 export async function renderFeed() {
   const [{ communities, posts }] = await Promise.all([api("/api/community"), refreshLibrary()]);
@@ -70,8 +74,8 @@ function postHtml(post, names) {
 
 function postHead(post, names, extra = "") {
   return `<div class="row">
-    ${avatar(post.author)}
-    <span class="row-text grow"><span class="row-title">${esc(post.author.name)}</span><span class="row-sub">${esc(names[post.community] ?? "")} · ${ago(post.createdAt)}</span></span>
+    <a class="author" href="${authorHref(post.author)}" data-link>${avatar(post.author)}
+      <span class="row-text"><span class="row-title">${esc(post.author.name)}</span><span class="row-sub">${esc(names[post.community] ?? "")} · ${ago(post.createdAt)}</span></span></a>
     ${post.sample ? `<span class="pill">Sample</span>` : ""}${extra}
   </div>`;
 }
@@ -92,9 +96,9 @@ function recipeMini(post) {
   const r = post.recipe;
   const meta = [r.totalTime, r.yield].filter(Boolean).map(esc).join(" · ");
   const flags = dietaryFlags(r);
-  return `<div class="mini-card">${thumbHtml(r, "sm")}
+  return `<div class="mini-card"><a class="mini-link" href="/community/post/${post.id}/recipe" data-link>${thumbHtml(r, "sm")}
     <span class="row-text grow"><span class="row-title">${esc(r.title)}</span>${meta ? `<span class="row-sub">${meta}</span>` : ""}
-      ${flags.map((f) => `<span class="tag-check">${esc(f.flag)}</span>`).join("")}</span>
+      ${flags.map((f) => `<span class="tag-check">${esc(f.flag)}</span>`).join("")}</span></a>
     ${saveButton(post)}</div>`;
 }
 
@@ -148,17 +152,18 @@ export async function renderPost(id) {
         ${r?.image ? thumbHtml(r, "card") : ""}
         ${postBody(post)}
         ${r ? `<div class="box-card">
-          <div class="row">${thumbHtml(r, "md")}<span class="row-text grow"><span class="row-title">${esc(r.title)}</span><span class="row-sub">${[r.yield, r.totalTime].filter(Boolean).map(esc).join(" · ")}</span></span></div>
+          <a class="mini-link" href="/community/post/${post.id}/recipe" data-link>${thumbHtml(r, "md")}<span class="row-text grow"><span class="row-title">${esc(r.title)}</span><span class="row-sub">${[r.yield, r.totalTime].filter(Boolean).map(esc).join(" · ")}</span></span><span class="chev" aria-hidden="true">›</span></a>
           ${flags.length ? `<div class="banner"><b>Heads up:</b> ${esc(flags.map((f) => (f.words.length ? `${f.flag} (${f.words.slice(0, 3).join(", ")})` : f.flag)).join(" · "))}. Check the comments for swaps.</div>` : ""}
           <ul class="preview-list">${items.slice(0, 5).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
           ${more ? `<span class="small muted">${more}</span>` : ""}
+          <a class="btn" href="/community/post/${post.id}/recipe" data-link>See the full recipe</a>
           ${saveButton(post, { big: true })}
         </div>` : ""}
         <div class="row">${likeButton(post)}<span class="small muted">${plural(post.comments.length, post.kind === "question" ? "answer" : "comment")}</span></div>
         <section class="section">
           <h2 class="h3">${post.kind === "question" ? "Answers" : "Comments"}</h2>
-          ${post.comments.length ? `<ul class="comments">${post.comments.map((c) => `<li>${avatar(c.author, "sm")}
-            <span class="row-text grow"><span class="small"><b>${esc(c.author.name)}</b>${c.author.name === post.author.name ? " · Author" : ""} · ${ago(c.createdAt)}</span><p class="caption">${esc(c.text)}</p></span></li>`).join("")}</ul>`
+          ${post.comments.length ? `<ul class="comments">${post.comments.map((c) => `<li><a href="${authorHref(c.author)}" data-link aria-label="${esc(c.author.name)}'s profile">${avatar(c.author, "sm")}</a>
+            <span class="row-text grow"><span class="small"><a class="strong" href="${authorHref(c.author)}" data-link>${esc(c.author.name)}</a>${c.author.name === post.author.name ? " · Author" : ""} · ${ago(c.createdAt)}</span><p class="caption">${esc(c.text)}</p></span></li>`).join("")}</ul>`
           : `<p class="muted">Nothing yet. Start the conversation.</p>`}
         </section>
       </div>
@@ -303,4 +308,84 @@ export async function renderFindCommunities() {
     await saveProfile({ joined: next });
     draw();
   });
+}
+
+// A recipe from a post, with the same servings stepper and tappable steps as your
+// own recipes. Saving puts a copy in your library.
+export async function renderCommunityRecipe(id) {
+  const [post] = await Promise.all([api(`/api/community/posts/${id}`), refreshLibrary(), loadCommunities()]);
+  const r = post.recipe;
+  if (!r) return navigate(`/community/post/${id}`, { replace: true });
+  const names = communityNames();
+
+  app.innerHTML = `
+    <article class="screen">
+      <header class="topbar"><a class="link" href="/community/post/${post.id}" data-link>‹ Post</a><span class="topbar-title"></span></header>
+      <div class="pad detail">
+        ${thumbHtml(r, "hero")}
+        <div class="stack-sm">
+          <span class="eyebrow">${esc(names[post.community] ?? "Community")}</span>
+          <h1 class="h1">${esc(r.title)}</h1>
+          <a class="byline" href="${authorHref(post.author)}" data-link>${avatar(post.author, "sm")}<span class="small">Shared by <b>${esc(post.author.name)}</b> · ${ago(post.createdAt)}</span></a>
+          <div class="row row-wrap">${timePills(r)}${post.sample ? `<span class="pill">Sample</span>` : ""}</div>
+          ${r.description ? `<p class="lead">${esc(r.description)}</p>` : ""}
+        </div>
+        ${dietaryBanner(r)}
+        ${recipeBodyHtml({ afterSteps: r.notes?.length ? `<div class="notes"><h3 class="h3">Notes</h3><ul>${r.notes.map((note) => `<li>${esc(note)}</li>`).join("")}</ul></div>` : "" })}
+      </div>
+      <div class="actionbar">
+        <a class="btn" href="/community/post/${post.id}" data-link>${post.comments.length ? `Comments · ${post.comments.length}` : "View post"}</a>
+        ${saveButton(post, { big: true })}
+      </div>
+    </article>`;
+
+  wireRecipeBody(r, { emptySteps: `<p class="muted">No steps.</p>` });
+  app.querySelector(".actionbar").addEventListener("click", (e) => postActions(e, [post], names));
+}
+
+// Someone's page: the communities they're in, what they've shared, and their posts.
+export async function renderPerson(name) {
+  const [{ communities, posts }] = await Promise.all([api("/api/community"), refreshLibrary()]);
+  state.communities = communities;
+  const names = communityNames();
+  const isThem = (author) => author.name === name && !author.you;
+  const theirs = posts.filter((p) => isThem(p.author));
+  const commentedOn = posts.filter((p) => p.comments.some((c) => isThem(c.author)));
+
+  if (!theirs.length && !commentedOn.length) {
+    app.innerHTML = `<section class="screen">
+      <header class="topbar"><a class="link" href="/community" data-link>‹ Community</a></header>
+      <div class="center-stack"><p class="muted">There's no one called ${esc(name)} in your communities.</p><a class="btn" href="/community" data-link>Back to Community</a></div></section>`;
+    return;
+  }
+  const where = [...new Set([...theirs, ...commentedOn].map((p) => names[p.community]).filter(Boolean))];
+  const recipes = theirs.filter((p) => p.recipe);
+  const likes = theirs.reduce((sum, p) => sum + p.likes, 0);
+  const sample = [...theirs, ...commentedOn].every((p) => p.sample);
+
+  app.innerHTML = `
+    <section class="screen">
+      <header class="topbar"><a class="link" href="/community" data-link>‹ Community</a><div class="topbar-title">${esc(name)}</div></header>
+      <div class="pad narrow" id="person">
+        <div class="row">
+          ${avatar({ name, you: false }, "lg")}
+          <span class="row-text grow"><span class="h2">${esc(name)}</span><span class="small muted">${esc(where.join(" · "))}</span></span>
+          ${sample ? `<span class="pill">Sample</span>` : ""}
+        </div>
+        ${sample ? `<p class="small muted">A sample member, here to show what a community looks like.</p>` : ""}
+        <div class="stats">
+          <div class="stat"><b>${theirs.length}</b><span class="small muted">Posts</span></div>
+          <div class="stat"><b>${recipes.length}</b><span class="small muted">Recipes</span></div>
+          <div class="stat"><b>${likes}</b><span class="small muted">Likes</span></div>
+        </div>
+        ${recipes.length ? `<section class="section"><h2 class="h3">Recipes</h2><div class="thumbs">
+          ${recipes.map((p) => `<a class="thumb-link" href="/community/post/${p.id}/recipe" data-link>${thumbHtml(p.recipe, "square")}<span class="small strong">${esc(p.recipe.title)}</span></a>`).join("")}
+        </div></section>` : ""}
+        <section class="section">
+          <h2 class="h3">Posts</h2>
+          ${theirs.length ? `<div class="posts">${theirs.map((p) => postHtml(p, names)).join("")}</div>` : `<p class="small muted">${esc(name)} hasn't posted yet, only commented.</p>`}
+        </section>
+      </div>
+    </section>`;
+  document.getElementById("person").addEventListener("click", (e) => postActions(e, posts, names));
 }

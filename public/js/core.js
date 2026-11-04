@@ -12,6 +12,11 @@ export const state = {
   community: "all",
   pendingFiles: [],
   sendSelection: [],
+  // Servings multiplier chosen on each recipe page, by recipe id; cook mode uses it too.
+  factors: {},
+  // The last "Generate a recipe" request, and recent titles so new ideas don't repeat.
+  lastGenerate: null,
+  generatedTitles: [],
   preview: loadPreview(),
 };
 
@@ -50,10 +55,18 @@ export async function saveProfile(changes) {
   return state.profile;
 }
 
+// The layouts offered in the Layout menu. Bold, Journal and Zine are still styled in
+// styles.css; add their ids here to offer them again.
+export const LAYOUTS_OFFERED = ["classic", "editorial", "midcentury", "bistro"];
+
+// Theme (light/dark) and layout are attributes on <html> that styles.css keys off.
+// A saved layout that isn't offered any more shows as Classic.
 export function applyTheme() {
+  const root = document.documentElement;
   const theme = state.profile?.theme;
-  if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
-  else delete document.documentElement.dataset.theme;
+  if (theme === "light" || theme === "dark") root.dataset.theme = theme;
+  else delete root.dataset.theme;
+  root.dataset.layout = LAYOUTS_OFFERED.includes(state.profile?.layout) ? state.profile.layout : "classic";
 }
 
 // ---------------------------------------------------------------------------

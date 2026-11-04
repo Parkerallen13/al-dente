@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Dente versions</title>
+<style>
+  :root { --ink: #111; --soft: #575757; --line: #e6e6e6; --bg: #fff; --panel: #f4f4f4; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #f2f2f2; --soft: #a6a6a6; --line: #2e2e2e; --bg: #111; --panel: #1c1c1c; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 16px 64px; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, sans-serif; }
+  main { max-width: 1400px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 34px; }
+  .intro { max-width: 760px; margin: 0 0 20px; color: var(--soft); }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+  nav a { padding: 6px 12px; border: 1.5px solid var(--ink); border-radius: 999px; color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none; }
+  nav a:hover { background: var(--ink); color: var(--bg); }
+  .version { padding: 32px 0; border-top: 2px solid var(--ink); }
+  .version header { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 8px; }
+  .num { margin: 0; font-size: 44px; font-weight: 800; line-height: 1; }
+  h2 { margin: 0 0 4px; font-size: 26px; }
+  .version header p { margin: 0 0 4px; max-width: 760px; color: var(--soft); }
+  .folder code { font-size: 12px; }
+  h3 { margin: 22px 0 10px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
+  .row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; }
+  .shot { flex: none; margin: 0; }
+  .shot img { display: block; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+  .shot-phone img { width: 195px; }
+  .shot-tablet img { width: 300px; }
+  .shot-desktop img { width: 480px; }
+  figcaption { margin-top: 6px; font-size: 13px; color: var(--soft); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Al Dente: every version</h1>
+  <p class="intro">From the first grayscale wireframe to the black-and-white app and its layout options. Click any screenshot to open it full size. Phone screenshots are 390 × 844 at 2× resolution and desktop screenshots are 1440 × 900. To use them in Figma, drag the PNG files onto a canvas; see README.md in this folder.</p>
+  <nav><a href="#01-wireframe">01 Wireframe</a><a href="#02-first-app">02 First app</a><a href="#03-color-redesign">03 Color redesign</a><a href="#04-lofi-classic">04 Lo-fi: Classic</a><a href="#05-editorial">05 Lo-fi: Editorial</a><a href="#06-bold">06 Lo-fi: Bold</a><a href="#07-journal">07 Lo-fi: Journal</a><a href="#08-zine">08 Lo-fi: Zine</a><a href="#09-mid-century">09 Lo-fi: Mid-Century</a><a href="#10-bistro">10 Lo-fi: Bistro</a></nav>
+  <section class="version" id="01-wireframe">
+  <header>
+    <p class="num">01</p>
+    <div><h2>Wireframe</h2><p>The first clickable grayscale wireframe, before any code. Every screen from wireframe/gallery.html.</p><p class="folder">Folder: <code>docs/versions/01-wireframe/</code> · 35 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/01-01-welcome.png"><img src="01-wireframe/01-01-welcome.png" alt="Wireframe: 01 · Welcome" loading="lazy"></a>
+      <figcaption>01 · Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/02-02-sign-up.png"><img src="01-wireframe/02-02-sign-up.png" alt="Wireframe: 02 · Sign up" loading="lazy"></a>
+      <figcaption>02 · Sign up</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/03-03-create-profile.png"><img src="01-wireframe/03-03-create-profile.png" alt="Wireframe: 03 · Create profile" loading="lazy"></a>
+      <figcaption>03 · Create profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/04-04-dietary-needs.png"><img src="01-wireframe/04-04-dietary-needs.png" alt="Wireframe: 04 · Dietary needs" loading="lazy"></a>
+      <figcaption>04 · Dietary needs</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/05-05-connect-cookbook.png"><img src="01-wireframe/05-05-connect-cookbook.png" alt="Wireframe: 05 · Connect cookbook" loading="lazy"></a>
+      <figcaption>05 · Connect cookbook</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/06-06-empty-library.png"><img src="01-wireframe/06-06-empty-library.png" alt="Wireframe: 06 · Empty library" loading="lazy"></a>
+      <figcaption>06 · Empty library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/07-16-instagram-share-mock.png"><img src="01-wireframe/07-16-instagram-share-mock.png" alt="Wireframe: 16 · Instagram share mock" loading="lazy"></a>
+      <figcaption>16 · Instagram share mock</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/08-10-saving.png"><img src="01-wireframe/08-10-saving.png" alt="Wireframe: 10 · Saving" loading="lazy"></a>
+      <figcaption>10 · Saving</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/09-11-saved-confirmation.png"><img src="01-wireframe/09-11-saved-confirmation.png" alt="Wireframe: 11 · Saved confirmation" loading="lazy"></a>
+      <figcaption>11 · Saved confirmation</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/10-13-collection-picker.png"><img src="01-wireframe/10-13-collection-picker.png" alt="Wireframe: 13 · Collection picker" loading="lazy"></a>
+      <figcaption>13 · Collection picker</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/11-07-library.png"><img src="01-wireframe/11-07-library.png" alt="Wireframe: 07 · Library" loading="lazy"></a>
+      <figcaption>07 · Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/12-08-add-recipe-menu.png"><img src="01-wireframe/12-08-add-recipe-menu.png" alt="Wireframe: 08 · Add recipe menu" loading="lazy"></a>
+      <figcaption>08 · Add recipe menu</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/13-09-paste-link.png"><img src="01-wireframe/13-09-paste-link.png" alt="Wireframe: 09 · Paste link" loading="lazy"></a>
+      <figcaption>09 · Paste link</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/14-12-review-when-unsure-photo-of-a-handwritten-card.png"><img src="01-wireframe/14-12-review-when-unsure-photo-of-a-handwritten-card.png" alt="Wireframe: 12 · Review (when unsure) (photo of a handwritten card)" loading="lazy"></a>
+      <figcaption>12 · Review (when unsure) (photo of a handwritten card)</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/15-08b-type-it-manually.png"><img src="01-wireframe/15-08b-type-it-manually.png" alt="Wireframe: 08b · Type it manually" loading="lazy"></a>
+      <figcaption>08b · Type it manually</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/16-14-recipe-detail-top.png"><img src="01-wireframe/16-14-recipe-detail-top.png" alt="Wireframe: 14 · Recipe detail (top)" loading="lazy"></a>
+      <figcaption>14 · Recipe detail (top)</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/17-14-recipe-detail-scrolled.png"><img src="01-wireframe/17-14-recipe-detail-scrolled.png" alt="Wireframe: 14 · Recipe detail (scrolled)" loading="lazy"></a>
+      <figcaption>14 · Recipe detail (scrolled)</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/18-14-recipe-detail-photo-voice-memo-source.png"><img src="01-wireframe/18-14-recipe-detail-photo-voice-memo-source.png" alt="Wireframe: 14 · Recipe detail (photo + voice memo source)" loading="lazy"></a>
+      <figcaption>14 · Recipe detail (photo + voice memo source)</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/19-15-cook-mode.png"><img src="01-wireframe/19-15-cook-mode.png" alt="Wireframe: 15 · Cook mode" loading="lazy"></a>
+      <figcaption>15 · Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/20-15-cook-mode-assistant-open.png"><img src="01-wireframe/20-15-cook-mode-assistant-open.png" alt="Wireframe: 15 · Cook mode (assistant open)" loading="lazy"></a>
+      <figcaption>15 · Cook mode (assistant open)</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/21-17-cookbook-home.png"><img src="01-wireframe/21-17-cookbook-home.png" alt="Wireframe: 17 · Cookbook home" loading="lazy"></a>
+      <figcaption>17 · Cookbook home</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/22-18-send-recipes.png"><img src="01-wireframe/22-18-send-recipes.png" alt="Wireframe: 18 · Send recipes" loading="lazy"></a>
+      <figcaption>18 · Send recipes</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/23-19-e-ink-preview.png"><img src="01-wireframe/23-19-e-ink-preview.png" alt="Wireframe: 19 · E-ink preview" loading="lazy"></a>
+      <figcaption>19 · E-ink preview</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/24-20-sent-confirmation.png"><img src="01-wireframe/24-20-sent-confirmation.png" alt="Wireframe: 20 · Sent confirmation" loading="lazy"></a>
+      <figcaption>20 · Sent confirmation</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/25-21-in-app-cookbook-view.png"><img src="01-wireframe/25-21-in-app-cookbook-view.png" alt="Wireframe: 21 · In-app cookbook view" loading="lazy"></a>
+      <figcaption>21 · In-app cookbook view</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/26-22-device-home.png"><img src="01-wireframe/26-22-device-home.png" alt="Wireframe: 22 · Device home" loading="lazy"></a>
+      <figcaption>22 · Device home</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/27-23-device-library-browse.png"><img src="01-wireframe/27-23-device-library-browse.png" alt="Wireframe: 23 · Device library browse" loading="lazy"></a>
+      <figcaption>23 · Device library browse</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/28-24-device-cook-view.png"><img src="01-wireframe/28-24-device-cook-view.png" alt="Wireframe: 24 · Device cook view" loading="lazy"></a>
+      <figcaption>24 · Device cook view</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/29-25-profile.png"><img src="01-wireframe/29-25-profile.png" alt="Wireframe: 25 · Profile" loading="lazy"></a>
+      <figcaption>25 · Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/30-26-community-feed.png"><img src="01-wireframe/30-26-community-feed.png" alt="Wireframe: 26 · Community feed" loading="lazy"></a>
+      <figcaption>26 · Community feed</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/31-27-post-and-comments.png"><img src="01-wireframe/31-27-post-and-comments.png" alt="Wireframe: 27 · Post and comments" loading="lazy"></a>
+      <figcaption>27 · Post and comments</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="01-wireframe/32-28-new-post.png"><img src="01-wireframe/32-28-new-post.png" alt="Wireframe: 28 · New post" loading="lazy"></a>
+      <figcaption>28 · New post</figcaption>
+    </figure>
+  </div>
+  <h3>Tablet</h3>
+  <div class="row">
+    <figure class="shot shot-tablet">
+      <a href="01-wireframe/33-tablet-07-library.png"><img src="01-wireframe/33-tablet-07-library.png" alt="Wireframe: 07 · Library (tablet)" loading="lazy"></a>
+      <figcaption>07 · Library (tablet)</figcaption>
+    </figure>
+    <figure class="shot shot-tablet">
+      <a href="01-wireframe/34-tablet-14-recipe-detail.png"><img src="01-wireframe/34-tablet-14-recipe-detail.png" alt="Wireframe: 14 · Recipe detail (tablet)" loading="lazy"></a>
+      <figcaption>14 · Recipe detail (tablet)</figcaption>
+    </figure>
+    <figure class="shot shot-tablet">
+      <a href="01-wireframe/35-tablet-15-cook-mode.png"><img src="01-wireframe/35-tablet-15-cook-mode.png" alt="Wireframe: 15 · Cook mode (tablet)" loading="lazy"></a>
+      <figcaption>15 · Cook mode (tablet)</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="02-first-app">
+  <header>
+    <p class="num">02</p>
+    <div><h2>First app</h2><p>The original working app (commit a27d712): import a recipe from a link, photo or text, then cook from a clean card. Warm colors, top navigation.</p><p class="folder">Folder: <code>docs/versions/02-first-app/</code> · 10 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="02-first-app/phone-01-library.png"><img src="02-first-app/phone-01-library.png" alt="First app: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="02-first-app/phone-02-add-a-recipe.png"><img src="02-first-app/phone-02-add-a-recipe.png" alt="First app: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="02-first-app/phone-03-recipe.png"><img src="02-first-app/phone-03-recipe.png" alt="First app: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="02-first-app/phone-04-cook-mode.png"><img src="02-first-app/phone-04-cook-mode.png" alt="First app: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="02-first-app/phone-05-edit-recipe.png"><img src="02-first-app/phone-05-edit-recipe.png" alt="First app: Edit recipe" loading="lazy"></a>
+      <figcaption>Edit recipe</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="02-first-app/desktop-01-library.png"><img src="02-first-app/desktop-01-library.png" alt="First app: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="02-first-app/desktop-02-add-a-recipe.png"><img src="02-first-app/desktop-02-add-a-recipe.png" alt="First app: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="02-first-app/desktop-03-recipe.png"><img src="02-first-app/desktop-03-recipe.png" alt="First app: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="02-first-app/desktop-04-cook-mode.png"><img src="02-first-app/desktop-04-cook-mode.png" alt="First app: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="02-first-app/desktop-05-edit-recipe.png"><img src="02-first-app/desktop-05-edit-recipe.png" alt="First app: Edit recipe" loading="lazy"></a>
+      <figcaption>Edit recipe</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="03-color-redesign">
+  <header>
+    <p class="num">03</p>
+    <div><h2>Color redesign</h2><p>The app rebuilt on the wireframe layout, with every wireframe feature, in warm cream and tomato colors (commit 0c35514).</p><p class="folder">Folder: <code>docs/versions/03-color-redesign/</code> · 16 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-01-welcome.png"><img src="03-color-redesign/phone-01-welcome.png" alt="Color redesign: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-02-library.png"><img src="03-color-redesign/phone-02-library.png" alt="Color redesign: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-03-add-a-recipe.png"><img src="03-color-redesign/phone-03-add-a-recipe.png" alt="Color redesign: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-04-recipe.png"><img src="03-color-redesign/phone-04-recipe.png" alt="Color redesign: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-05-cook-mode.png"><img src="03-color-redesign/phone-05-cook-mode.png" alt="Color redesign: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-06-community.png"><img src="03-color-redesign/phone-06-community.png" alt="Color redesign: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-07-profile.png"><img src="03-color-redesign/phone-07-profile.png" alt="Color redesign: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="03-color-redesign/phone-08-cookbook-device.png"><img src="03-color-redesign/phone-08-cookbook-device.png" alt="Color redesign: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-01-welcome.png"><img src="03-color-redesign/desktop-01-welcome.png" alt="Color redesign: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-02-library.png"><img src="03-color-redesign/desktop-02-library.png" alt="Color redesign: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-03-add-a-recipe.png"><img src="03-color-redesign/desktop-03-add-a-recipe.png" alt="Color redesign: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-04-recipe.png"><img src="03-color-redesign/desktop-04-recipe.png" alt="Color redesign: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-05-cook-mode.png"><img src="03-color-redesign/desktop-05-cook-mode.png" alt="Color redesign: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-06-community.png"><img src="03-color-redesign/desktop-06-community.png" alt="Color redesign: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-07-profile.png"><img src="03-color-redesign/desktop-07-profile.png" alt="Color redesign: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="03-color-redesign/desktop-08-cookbook-device.png"><img src="03-color-redesign/desktop-08-cookbook-device.png" alt="Color redesign: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="04-lofi-classic">
+  <header>
+    <p class="num">04</p>
+    <div><h2>Lo-fi: Classic</h2><p>Back to black and white while the group decides on visual style. Classic is the calm, familiar layout. Steps show ingredient amounts.</p><p class="folder">Folder: <code>docs/versions/04-lofi-classic/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-01-welcome.png"><img src="04-lofi-classic/phone-01-welcome.png" alt="Lo-fi: Classic: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-02-library.png"><img src="04-lofi-classic/phone-02-library.png" alt="Lo-fi: Classic: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-03-add-a-recipe.png"><img src="04-lofi-classic/phone-03-add-a-recipe.png" alt="Lo-fi: Classic: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-04-recipe.png"><img src="04-lofi-classic/phone-04-recipe.png" alt="Lo-fi: Classic: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-05-cook-mode.png"><img src="04-lofi-classic/phone-05-cook-mode.png" alt="Lo-fi: Classic: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-06-community.png"><img src="04-lofi-classic/phone-06-community.png" alt="Lo-fi: Classic: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-07-community-recipe.png"><img src="04-lofi-classic/phone-07-community-recipe.png" alt="Lo-fi: Classic: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-08-profile.png"><img src="04-lofi-classic/phone-08-profile.png" alt="Lo-fi: Classic: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="04-lofi-classic/phone-09-cookbook-device.png"><img src="04-lofi-classic/phone-09-cookbook-device.png" alt="Lo-fi: Classic: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-01-welcome.png"><img src="04-lofi-classic/desktop-01-welcome.png" alt="Lo-fi: Classic: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-02-library.png"><img src="04-lofi-classic/desktop-02-library.png" alt="Lo-fi: Classic: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-03-add-a-recipe.png"><img src="04-lofi-classic/desktop-03-add-a-recipe.png" alt="Lo-fi: Classic: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-04-recipe.png"><img src="04-lofi-classic/desktop-04-recipe.png" alt="Lo-fi: Classic: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-05-cook-mode.png"><img src="04-lofi-classic/desktop-05-cook-mode.png" alt="Lo-fi: Classic: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-06-community.png"><img src="04-lofi-classic/desktop-06-community.png" alt="Lo-fi: Classic: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-07-community-recipe.png"><img src="04-lofi-classic/desktop-07-community-recipe.png" alt="Lo-fi: Classic: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-08-profile.png"><img src="04-lofi-classic/desktop-08-profile.png" alt="Lo-fi: Classic: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="04-lofi-classic/desktop-09-cookbook-device.png"><img src="04-lofi-classic/desktop-09-cookbook-device.png" alt="Lo-fi: Classic: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="05-editorial">
+  <header>
+    <p class="num">05</p>
+    <div><h2>Lo-fi: Editorial</h2><p>Magazine type, numbered recipe lists, thin rules, and soft page transitions.</p><p class="folder">Folder: <code>docs/versions/05-editorial/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-01-welcome.png"><img src="05-editorial/phone-01-welcome.png" alt="Lo-fi: Editorial: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-02-library.png"><img src="05-editorial/phone-02-library.png" alt="Lo-fi: Editorial: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-03-add-a-recipe.png"><img src="05-editorial/phone-03-add-a-recipe.png" alt="Lo-fi: Editorial: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-04-recipe.png"><img src="05-editorial/phone-04-recipe.png" alt="Lo-fi: Editorial: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-05-cook-mode.png"><img src="05-editorial/phone-05-cook-mode.png" alt="Lo-fi: Editorial: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-06-community.png"><img src="05-editorial/phone-06-community.png" alt="Lo-fi: Editorial: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-07-community-recipe.png"><img src="05-editorial/phone-07-community-recipe.png" alt="Lo-fi: Editorial: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-08-profile.png"><img src="05-editorial/phone-08-profile.png" alt="Lo-fi: Editorial: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="05-editorial/phone-09-cookbook-device.png"><img src="05-editorial/phone-09-cookbook-device.png" alt="Lo-fi: Editorial: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-01-welcome.png"><img src="05-editorial/desktop-01-welcome.png" alt="Lo-fi: Editorial: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-02-library.png"><img src="05-editorial/desktop-02-library.png" alt="Lo-fi: Editorial: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-03-add-a-recipe.png"><img src="05-editorial/desktop-03-add-a-recipe.png" alt="Lo-fi: Editorial: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-04-recipe.png"><img src="05-editorial/desktop-04-recipe.png" alt="Lo-fi: Editorial: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-05-cook-mode.png"><img src="05-editorial/desktop-05-cook-mode.png" alt="Lo-fi: Editorial: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-06-community.png"><img src="05-editorial/desktop-06-community.png" alt="Lo-fi: Editorial: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-07-community-recipe.png"><img src="05-editorial/desktop-07-community-recipe.png" alt="Lo-fi: Editorial: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-08-profile.png"><img src="05-editorial/desktop-08-profile.png" alt="Lo-fi: Editorial: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="05-editorial/desktop-09-cookbook-device.png"><img src="05-editorial/desktop-09-cookbook-device.png" alt="Lo-fi: Editorial: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="06-bold">
+  <header>
+    <p class="num">06</p>
+    <div><h2>Lo-fi: Bold</h2><p>Heavy type, hard shadows, a floating tab dock, and springy animations.</p><p class="folder">Folder: <code>docs/versions/06-bold/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-01-welcome.png"><img src="06-bold/phone-01-welcome.png" alt="Lo-fi: Bold: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-02-library.png"><img src="06-bold/phone-02-library.png" alt="Lo-fi: Bold: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-03-add-a-recipe.png"><img src="06-bold/phone-03-add-a-recipe.png" alt="Lo-fi: Bold: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-04-recipe.png"><img src="06-bold/phone-04-recipe.png" alt="Lo-fi: Bold: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-05-cook-mode.png"><img src="06-bold/phone-05-cook-mode.png" alt="Lo-fi: Bold: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-06-community.png"><img src="06-bold/phone-06-community.png" alt="Lo-fi: Bold: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-07-community-recipe.png"><img src="06-bold/phone-07-community-recipe.png" alt="Lo-fi: Bold: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-08-profile.png"><img src="06-bold/phone-08-profile.png" alt="Lo-fi: Bold: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="06-bold/phone-09-cookbook-device.png"><img src="06-bold/phone-09-cookbook-device.png" alt="Lo-fi: Bold: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-01-welcome.png"><img src="06-bold/desktop-01-welcome.png" alt="Lo-fi: Bold: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-02-library.png"><img src="06-bold/desktop-02-library.png" alt="Lo-fi: Bold: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-03-add-a-recipe.png"><img src="06-bold/desktop-03-add-a-recipe.png" alt="Lo-fi: Bold: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-04-recipe.png"><img src="06-bold/desktop-04-recipe.png" alt="Lo-fi: Bold: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-05-cook-mode.png"><img src="06-bold/desktop-05-cook-mode.png" alt="Lo-fi: Bold: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-06-community.png"><img src="06-bold/desktop-06-community.png" alt="Lo-fi: Bold: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-07-community-recipe.png"><img src="06-bold/desktop-07-community-recipe.png" alt="Lo-fi: Bold: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-08-profile.png"><img src="06-bold/desktop-08-profile.png" alt="Lo-fi: Bold: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="06-bold/desktop-09-cookbook-device.png"><img src="06-bold/desktop-09-cookbook-device.png" alt="Lo-fi: Bold: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="07-journal">
+  <header>
+    <p class="num">07</p>
+    <div><h2>Lo-fi: Journal</h2><p>A lifestyle-magazine feel: fashion serifs, a mixed-size mosaic, pull quotes, and slow fades.</p><p class="folder">Folder: <code>docs/versions/07-journal/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-01-welcome.png"><img src="07-journal/phone-01-welcome.png" alt="Lo-fi: Journal: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-02-library.png"><img src="07-journal/phone-02-library.png" alt="Lo-fi: Journal: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-03-add-a-recipe.png"><img src="07-journal/phone-03-add-a-recipe.png" alt="Lo-fi: Journal: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-04-recipe.png"><img src="07-journal/phone-04-recipe.png" alt="Lo-fi: Journal: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-05-cook-mode.png"><img src="07-journal/phone-05-cook-mode.png" alt="Lo-fi: Journal: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-06-community.png"><img src="07-journal/phone-06-community.png" alt="Lo-fi: Journal: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-07-community-recipe.png"><img src="07-journal/phone-07-community-recipe.png" alt="Lo-fi: Journal: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-08-profile.png"><img src="07-journal/phone-08-profile.png" alt="Lo-fi: Journal: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="07-journal/phone-09-cookbook-device.png"><img src="07-journal/phone-09-cookbook-device.png" alt="Lo-fi: Journal: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-01-welcome.png"><img src="07-journal/desktop-01-welcome.png" alt="Lo-fi: Journal: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-02-library.png"><img src="07-journal/desktop-02-library.png" alt="Lo-fi: Journal: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-03-add-a-recipe.png"><img src="07-journal/desktop-03-add-a-recipe.png" alt="Lo-fi: Journal: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-04-recipe.png"><img src="07-journal/desktop-04-recipe.png" alt="Lo-fi: Journal: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-05-cook-mode.png"><img src="07-journal/desktop-05-cook-mode.png" alt="Lo-fi: Journal: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-06-community.png"><img src="07-journal/desktop-06-community.png" alt="Lo-fi: Journal: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-07-community-recipe.png"><img src="07-journal/desktop-07-community-recipe.png" alt="Lo-fi: Journal: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-08-profile.png"><img src="07-journal/desktop-08-profile.png" alt="Lo-fi: Journal: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="07-journal/desktop-09-cookbook-device.png"><img src="07-journal/desktop-09-cookbook-device.png" alt="Lo-fi: Journal: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="08-zine">
+  <header>
+    <p class="num">08</p>
+    <div><h2>Lo-fi: Zine</h2><p>Bold and Journal mixed: outlines, shadows and a floating dock with fashion serifs and pull quotes.</p><p class="folder">Folder: <code>docs/versions/08-zine/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-01-welcome.png"><img src="08-zine/phone-01-welcome.png" alt="Lo-fi: Zine: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-02-library.png"><img src="08-zine/phone-02-library.png" alt="Lo-fi: Zine: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-03-add-a-recipe.png"><img src="08-zine/phone-03-add-a-recipe.png" alt="Lo-fi: Zine: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-04-recipe.png"><img src="08-zine/phone-04-recipe.png" alt="Lo-fi: Zine: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-05-cook-mode.png"><img src="08-zine/phone-05-cook-mode.png" alt="Lo-fi: Zine: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-06-community.png"><img src="08-zine/phone-06-community.png" alt="Lo-fi: Zine: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-07-community-recipe.png"><img src="08-zine/phone-07-community-recipe.png" alt="Lo-fi: Zine: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-08-profile.png"><img src="08-zine/phone-08-profile.png" alt="Lo-fi: Zine: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="08-zine/phone-09-cookbook-device.png"><img src="08-zine/phone-09-cookbook-device.png" alt="Lo-fi: Zine: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-01-welcome.png"><img src="08-zine/desktop-01-welcome.png" alt="Lo-fi: Zine: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-02-library.png"><img src="08-zine/desktop-02-library.png" alt="Lo-fi: Zine: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-03-add-a-recipe.png"><img src="08-zine/desktop-03-add-a-recipe.png" alt="Lo-fi: Zine: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-04-recipe.png"><img src="08-zine/desktop-04-recipe.png" alt="Lo-fi: Zine: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-05-cook-mode.png"><img src="08-zine/desktop-05-cook-mode.png" alt="Lo-fi: Zine: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-06-community.png"><img src="08-zine/desktop-06-community.png" alt="Lo-fi: Zine: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-07-community-recipe.png"><img src="08-zine/desktop-07-community-recipe.png" alt="Lo-fi: Zine: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-08-profile.png"><img src="08-zine/desktop-08-profile.png" alt="Lo-fi: Zine: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="08-zine/desktop-09-cookbook-device.png"><img src="08-zine/desktop-09-cookbook-device.png" alt="Lo-fi: Zine: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="09-mid-century">
+  <header>
+    <p class="num">09</p>
+    <div><h2>Lo-fi: Mid-Century</h2><p>Mid-century Americana: diner signage, starbursts, ringed buttons, and ticket-stub cards.</p><p class="folder">Folder: <code>docs/versions/09-mid-century/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-01-welcome.png"><img src="09-mid-century/phone-01-welcome.png" alt="Lo-fi: Mid-Century: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-02-library.png"><img src="09-mid-century/phone-02-library.png" alt="Lo-fi: Mid-Century: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-03-add-a-recipe.png"><img src="09-mid-century/phone-03-add-a-recipe.png" alt="Lo-fi: Mid-Century: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-04-recipe.png"><img src="09-mid-century/phone-04-recipe.png" alt="Lo-fi: Mid-Century: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-05-cook-mode.png"><img src="09-mid-century/phone-05-cook-mode.png" alt="Lo-fi: Mid-Century: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-06-community.png"><img src="09-mid-century/phone-06-community.png" alt="Lo-fi: Mid-Century: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-07-community-recipe.png"><img src="09-mid-century/phone-07-community-recipe.png" alt="Lo-fi: Mid-Century: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-08-profile.png"><img src="09-mid-century/phone-08-profile.png" alt="Lo-fi: Mid-Century: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="09-mid-century/phone-09-cookbook-device.png"><img src="09-mid-century/phone-09-cookbook-device.png" alt="Lo-fi: Mid-Century: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-01-welcome.png"><img src="09-mid-century/desktop-01-welcome.png" alt="Lo-fi: Mid-Century: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-02-library.png"><img src="09-mid-century/desktop-02-library.png" alt="Lo-fi: Mid-Century: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-03-add-a-recipe.png"><img src="09-mid-century/desktop-03-add-a-recipe.png" alt="Lo-fi: Mid-Century: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-04-recipe.png"><img src="09-mid-century/desktop-04-recipe.png" alt="Lo-fi: Mid-Century: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-05-cook-mode.png"><img src="09-mid-century/desktop-05-cook-mode.png" alt="Lo-fi: Mid-Century: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-06-community.png"><img src="09-mid-century/desktop-06-community.png" alt="Lo-fi: Mid-Century: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-07-community-recipe.png"><img src="09-mid-century/desktop-07-community-recipe.png" alt="Lo-fi: Mid-Century: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-08-profile.png"><img src="09-mid-century/desktop-08-profile.png" alt="Lo-fi: Mid-Century: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="09-mid-century/desktop-09-cookbook-device.png"><img src="09-mid-century/desktop-09-cookbook-device.png" alt="Lo-fi: Mid-Century: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="version" id="10-bistro">
+  <header>
+    <p class="num">10</p>
+    <div><h2>Lo-fi: Bistro</h2><p>A boutique French café: script menus, a striped awning, a chalkboard cook mode, and little wiggles.</p><p class="folder">Folder: <code>docs/versions/10-bistro/</code> · 18 screenshots</p></div>
+  </header>
+  <h3>Phone</h3>
+  <div class="row">
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-01-welcome.png"><img src="10-bistro/phone-01-welcome.png" alt="Lo-fi: Bistro: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-02-library.png"><img src="10-bistro/phone-02-library.png" alt="Lo-fi: Bistro: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-03-add-a-recipe.png"><img src="10-bistro/phone-03-add-a-recipe.png" alt="Lo-fi: Bistro: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-04-recipe.png"><img src="10-bistro/phone-04-recipe.png" alt="Lo-fi: Bistro: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-05-cook-mode.png"><img src="10-bistro/phone-05-cook-mode.png" alt="Lo-fi: Bistro: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-06-community.png"><img src="10-bistro/phone-06-community.png" alt="Lo-fi: Bistro: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-07-community-recipe.png"><img src="10-bistro/phone-07-community-recipe.png" alt="Lo-fi: Bistro: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-08-profile.png"><img src="10-bistro/phone-08-profile.png" alt="Lo-fi: Bistro: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-phone">
+      <a href="10-bistro/phone-09-cookbook-device.png"><img src="10-bistro/phone-09-cookbook-device.png" alt="Lo-fi: Bistro: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+  <h3>Desktop</h3>
+  <div class="row">
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-01-welcome.png"><img src="10-bistro/desktop-01-welcome.png" alt="Lo-fi: Bistro: Welcome" loading="lazy"></a>
+      <figcaption>Welcome</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-02-library.png"><img src="10-bistro/desktop-02-library.png" alt="Lo-fi: Bistro: Library" loading="lazy"></a>
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-03-add-a-recipe.png"><img src="10-bistro/desktop-03-add-a-recipe.png" alt="Lo-fi: Bistro: Add a recipe" loading="lazy"></a>
+      <figcaption>Add a recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-04-recipe.png"><img src="10-bistro/desktop-04-recipe.png" alt="Lo-fi: Bistro: Recipe" loading="lazy"></a>
+      <figcaption>Recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-05-cook-mode.png"><img src="10-bistro/desktop-05-cook-mode.png" alt="Lo-fi: Bistro: Cook mode" loading="lazy"></a>
+      <figcaption>Cook mode</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-06-community.png"><img src="10-bistro/desktop-06-community.png" alt="Lo-fi: Bistro: Community" loading="lazy"></a>
+      <figcaption>Community</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-07-community-recipe.png"><img src="10-bistro/desktop-07-community-recipe.png" alt="Lo-fi: Bistro: Community recipe" loading="lazy"></a>
+      <figcaption>Community recipe</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-08-profile.png"><img src="10-bistro/desktop-08-profile.png" alt="Lo-fi: Bistro: Profile" loading="lazy"></a>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="shot shot-desktop">
+      <a href="10-bistro/desktop-09-cookbook-device.png"><img src="10-bistro/desktop-09-cookbook-device.png" alt="Lo-fi: Bistro: Cookbook device" loading="lazy"></a>
+      <figcaption>Cookbook device</figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+</body>
+</html>

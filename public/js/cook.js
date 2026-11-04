@@ -1,7 +1,7 @@
-// Cook mode: three steps a page, timers found in the steps, the assistant, and the
-// screen kept awake while it's open.
-import { app, state, api, navigate, onLeave, loadStatus, esc, toast, SpeechRecognition } from "./core.js";
-import { scaleIngredient } from "./recipe.js";
+// Cook mode: three steps a page with the amounts they need, timers found in the
+// steps, the ingredient list one tap away, the assistant, and the screen kept awake.
+import { app, state, api, navigate, onLeave, loadStatus, esc, toast, openSheet, SpeechRecognition } from "./core.js";
+import { scaleIngredient, amountsFor, stepHtml } from "./recipe.js";
 
 const STEPS_PER_PAGE = 3;
 const DURATION_RE = /\b(\d+(?:\.\d+)?|an?|one)\s*(?:(?:-|–|to)\s*\d+(?:\.\d+)?\s*)?(hours?|hrs?|minutes?|mins?|seconds?|secs?)\b(?:\s*(?:and\s*)?(\d+)\s*(?:minutes?|mins?)\b)?/i;
@@ -41,6 +41,11 @@ export async function renderCook(recipe) {
   await loadStatus();
   const steps = recipe.stepGroups.flatMap((g) => g.steps);
   const pages = Math.max(1, Math.ceil(steps.length / STEPS_PER_PAGE));
+  const factor = state.factors[recipe.id] ?? 1;
+  const items = amountsFor(recipe);
+  const measured = new Set();
+  const stepTexts = steps.map((text) => stepHtml(text, items, factor, highlight, measured));
+  const gathered = new Set();
   const timers = [];
   let page = 0;
   let audio = null;
@@ -54,10 +59,10 @@ export async function renderCook(recipe) {
         <div class="topbar-title">${esc(recipe.title)}</div>
         <span class="small muted" id="page-label"></span>
       </header>
-      <div class="timerbar" id="timerbar"><button class="chip chip-sm" type="button" id="add-timer">+ 5 min timer</button></div>
-      ${recipe.ingredientGroups.length ? `<details class="cook-ings"><summary>Ingredients</summary>
-        ${recipe.ingredientGroups.map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}<ul>${g.items.map((item) => `<li>${scaleIngredient(item, 1)}</li>`).join("")}</ul>`).join("")}
-      </details>` : ""}
+      <div class="timerbar" id="timerbar">
+        ${recipe.ingredientGroups.length ? `<button class="chip chip-sm" type="button" id="show-ings">Ingredients</button>` : ""}
+        <button class="chip chip-sm" type="button" id="add-timer">+ 5 min timer</button>
+      </div>
       <div class="cook-steps" id="cook-steps"></div>
       <footer class="cook-foot">
         <div class="row">
@@ -82,7 +87,7 @@ export async function renderCook(recipe) {
           const running = timers.some((t) => t.step === n);
           return `<article class="cook-step">
             <div class="row"><span class="step-num">${n}</span><span class="small muted strong">Step ${n}</span></div>
-            <p>${highlight(text)}</p>
+            <p>${stepTexts[n - 1]}</p>
             ${secs ? `<button class="chip self-start" type="button" data-timer="${n}" data-secs="${secs}" ${running ? "disabled" : ""}>${running ? "Timer running" : `Start ${formatDuration(secs)} timer`}</button>` : ""}
           </article>`;
         })
@@ -132,6 +137,23 @@ export async function renderCook(recipe) {
   const interval = setInterval(tick, 1000);
 
   document.getElementById("add-timer").addEventListener("click", () => addTimer("Timer", 300));
+  // The full list, at the servings picked on the recipe page. Ticks last for this cook.
+  document.getElementById("show-ings")?.addEventListener("click", () => {
+    let i = 0;
+    const sheet = openSheet("Ingredients", `
+      ${factor === 1 ? "" : `<p class="small muted">Scaled to ${factor}× on the recipe page.</p>`}
+      ${recipe.ingredientGroups.map((g) => `${g.name ? `<h3 class="group-name">${esc(g.name)}</h3>` : ""}<ul class="ingredients">
+        ${g.items.map((item) => {
+          const id = i++;
+          return `<li><label><input type="checkbox" data-i="${id}" ${gathered.has(id) ? "checked" : ""}><span>${scaleIngredient(item, factor)}</span></label></li>`;
+        }).join("")}</ul>`).join("")}
+      <button class="btn btn-primary" type="button" data-close>Back to the steps</button>`);
+    sheet.addEventListener("change", (e) => {
+      const id = Number(e.target.dataset.i);
+      e.target.checked ? gathered.add(id) : gathered.delete(id);
+    });
+    sheet.querySelector("[data-close]").addEventListener("click", () => sheet.remove());
+  });
   document.getElementById("cook-steps").addEventListener("click", (e) => {
     const button = e.target.closest("[data-timer]");
     if (!button) return;
